@@ -1,7 +1,7 @@
 /*
  * =======================================================
  * VITTALIFLOW LANDING PAGE - ZENITH AURA PRIME (VISUAL AAA)
- * CONCEITO: Polimento Extremo, Hierarquia Impecável, Fundo Suave e CTA Flutuante.
+ * CONCEITO: Polimento Extremo, Hierarquia Impecável, Fundo Suave e Logo em Destaque.
  * =======================================================
  */
 
@@ -10,16 +10,15 @@
     --color-primary: #1a4369;     /* Azul Marinho Profundo (Base de Foco) */
     --color-secondary: #34d399;   /* Verde Água Sereno (Ação Vibrante) */
     --color-accent: #f59e0b;      /* Âmbar Suave (Destaque) */
-    --color-danger: #ef4444;      /* Vermelho de Alerta */
-    --color-background-hero: #1a4369; 
+    --color-background-hero: #1a4369; /* Mantenho o azul aqui para o HERO SECTION */ 
     --color-text-dark: #1f2937;
     --color-text-subtle: #6b7280; 
     --color-surface: #ffffff;
     --color-light-bg: #f3f4f6; /* Fundo suave para seções secundárias */
     --shadow-base: 0 10px 30px rgba(0, 0, 0, 0.08); /* Sombra mais suave */
-    --shadow-hover: 0 15px 40px rgba(0, 0, 0, 0.15); 
-    --border-radius-lg: 12px; 
-    --transition-speed: 0.4s;
+    --shadow-hover: 0 15px 40px rgba(0, 0, 0, 0.15); /* Sombra intensa no hover */
+    --border-radius-lg: 12px; /* Ligeiramente mais curvo */
+    --transition-speed: 0.4s; /* Transições mais lentas e fluidas */
 }
 
 /* 2. REGRAS GLOBAIS E ESTRUTURA */
@@ -47,59 +46,70 @@ h3 {
     font-weight: 700;
 }
         
-/* 3. CABEÇALHO (HEADER) - Limpo e Fixo */
+/* 3. CABEÇALHO (HEADER) - FINAL E COMPACTO */
 header {
-    background-color: var(--color-background-hero); 
-    padding: 15px 50px;
+    /* Fundo forçado para BRANCO (para contraste máximo da logo) */
+    background-color: #ffffff; 
+    color: var(--color-text-dark);
+    
+    padding: 0 50px; 
+    min-height: 40px; 
+    
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-bottom: 3px solid var(--color-secondary);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+    
+    /* COMANDO PARA FIXAR O HEADER */
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 1000;
 }
 
-header h1 {
-    color: white;
-    font-size: 1.6em;
-    font-weight: 800;
-    letter-spacing: 0.05em;
-    margin: 0;
+/* REGRA CRÍTICA DA LOGO (CORREÇÃO DE TAMANHO E MARGEM) */
+#header-logo-final {
+    /* CORREÇÃO APLICADA: Reduzido de 280px para 120px */
+    height: 120px !important; 
+    width: auto !important;
+    
+    /* CORREÇÃO APLICADA: Margem negativa ajustada para -40px */
+    margin-top: -40px; 
+    margin-bottom: -40px; 
+    
+    filter: none;
+    transition: all 0.3s;
 }
 
-/* 4. SEÇÃO HERO (GRID ASSIMÉTRICO DE ALTO IMPACTO) */
+#header-logo-final:hover {
+    filter: drop-shadow(0 0 10px rgba(52, 211, 153, 1)); 
+}
+
+
+/* 4. SEÇÃO HERO */
 .landing-hero {
-    background: linear-gradient(135deg, var(--color-background-hero) 0%, #3b82f6 100%);
-    color: white;
+    /* Mantém o gradiente escuro para o corpo da página */
+    background: linear-gradient(135deg, var(--color-primary) 0%, #3b82f6 100%);
+    color: white; /* Mantém o texto principal branco para o fundo escuro */
     min-height: 90vh;
     display: grid;
     grid-template-columns: 3fr 2fr; 
-    gap: 50px;
+    gap: 30px; 
     padding: 0 50px; 
     align-items: center;
-    padding-top: 50px;
+    padding-top: 50px; 
     padding-bottom: 50px; 
 }
 
-/* 4. SEÇÃO HERO (MÁXIMO IMPACTO) - ADICIONAR FLEX NO CONTAINER DOS BOTÕES */
 .hero-text-content {
-    /* ... regras anteriores ... */
     padding: 50px 0;
     text-align: left;
-    
-    /* NOVO: Container para os botões para forçar o alinhamento */
-    display: flex;
-    flex-wrap: wrap; /* Permite quebrar se não houver espaço (responsividade) */
-    align-items: center;
-    justify-content: flex-start; /* Alinha os botões à esquerda */
 }
 
 .landing-hero h1 {
     font-size: 4em; 
     margin-bottom: 25px;
-    color: white;
+    color: white; 
     line-height: 1.05;
     text-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
 }
@@ -112,7 +122,15 @@ header h1 {
     font-weight: 300;
 }
 
-/* Simulação de Mockup (O Bloco de Imagem) */
+.hero-buttons-container {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 20px; 
+    margin-top: 30px;
+    align-items: center;
+    justify-content: flex-start;
+}
+
 .hero-mockup-area {
     background-color: rgba(255, 255, 255, 0.15); 
     border: 3px solid rgba(255, 255, 255, 0.5); 
@@ -168,7 +186,6 @@ header h1 {
     transition: transform var(--transition-speed), box-shadow var(--transition-speed);
 }
 
-/* Efeito de Elevação ao Passar o Mouse */
 .pillar-card:hover, .testimonial-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
@@ -183,62 +200,40 @@ header h1 {
     color: var(--color-text-subtle);
 }
 
-/* 7. CTA FINAL (O BLOCO QUE ESTAVA QUEBRANDO) */
+/* 7. CTA FINAL */
 .cta-final {
-    background-color: var(--color-surface); /* Fundo agora é branco para o painel flutuar */
+    background-color: var(--color-surface); 
     padding: 100px 50px; 
     text-align: center;
     border-top: 5px solid var(--color-secondary);
-    position: relative;
 }
-
 .cta-final h2 { 
     color: var(--color-primary); 
     font-size: 3.2em;
-    margin-bottom: 25px; 
     font-weight: 900;
 }
-
-.cta-final p {
-    color: var(--color-text-subtle); 
-    font-size: 1.25em; 
-    max-width: 800px;
-    margin: 0 auto 50px;
-}
-
 .cta-buttons-container {
     display: flex;
     justify-content: center;
-    align-items: center;
     gap: 30px;
     margin-top: 30px;
-    padding: 30px;
-    max-width: 700px;
-    margin: 0 auto;
-    /* Efeito de Profundidade e Transparência */
-    background-color: rgba(26, 67, 105, 0.03); 
-    border-radius: var(--border-radius-lg);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    border: 1px solid rgba(52, 211, 153, 0.3);
 }
 
 
-/* 8. REGRAS GERAIS DE BOTÕES (CORRIGIDO PARA O LAYOUT INLINE) */
+/* 8. REGRAS GERAIS DE BOTÕES */
 .action-button-large {
     padding: 20px 45px;
-    font-size: 1.3em;
+    font-size: 1.3em; 
     border-radius: 12px;
     font-weight: 700;
     text-transform: uppercase;
     transition: all 0.35s ease-in-out;
-    /* REMOVE MARGEM HORIZONTAL AQUI E DEIXA SÓ NO HTML PARA CONTROLE */
-    margin: 0 0 20px 0; 
-    display: inline-block; /* Garante que eles fiquem lado a lado */
+    margin: 0;
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
     cursor: pointer;
     text-decoration: none;
+    display: inline-block;
 }
-
 
 .btn-cliente { background-color: var(--color-secondary); color: var(--color-primary); }
 .btn-cliente:hover { background-color: #279f7a; color: white; transform: translateY(-4px); }
@@ -253,10 +248,11 @@ footer {
     color: #c0c0c0;
     font-size: 0.9em;
     text-align: center;
+    border-top: 5px solid var(--color-secondary);
 }
 
 
-/* 10. RESPONSIVIDADE (CRÍTICO PARA O GRID) */
+/* 10. RESPONSIVIDADE */
 @media (max-width: 1000px) {
     .landing-hero {
         grid-template-columns: 1fr; 
@@ -269,19 +265,27 @@ footer {
         margin: 40px auto 0 auto;
     }
 
+    .hero-buttons-container {
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .action-button-large { 
+        width: 100%; 
+        max-width: 300px;
+        margin: 0; 
+        display: block; 
+    }
+
     .pillars-grid, .testimonials-grid {
         grid-template-columns: 1fr;
     }
     
     .landing-hero h1 { font-size: 3em; }
-    .landing-hero p { font-size: 1.2em; }
-    .action-button-large { width: 90%; margin: 10px 0; display: block; }
     
     header {
         padding: 15px 20px;
-    }
-    .cta-buttons-container {
-        flex-direction: column;
-        gap: 15px;
     }
 }
