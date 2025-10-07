@@ -1,0 +1,156 @@
+/*
+ * =======================================================
+ * VITTALIFLOW VITRINE - ESTILO DA LANDING PAGE (INDEX.HTML)
+ * CONCEITO: Contraste Profissional, Minimalismo Moderno e Foco na Conversão.
+ * ======================================================= */
+
+/* -- VARIÁVEIS -- (Coerência com o Sistema) */
+:root {
+    --color-primary: #1a4369;     /* Azul Marinho Profundo (Base) */
+    --color-secondary: #34d399;   /* Verde Água Sereno (Ação) */
+    --color-accent: #f59e0b;      /* Âmbar Suave (Destaque) */
+    --color-background-hero: #1a4369; /* Fundo Sólido para o Hero */
+    --color-text-dark: #1f2937;   /* Texto Scuro (Corpo) */
+    --color-text-light: #e0e7ff;  /* Texto Claro (Hero) */
+    --shadow-base: 0 4px 15px rgba(0, 0, 0, 0.2);
+    --border-radius-lg: 10px;
+    --transition-speed: 0.3s;
+}
+
+/* =======================================================
+ * 1. REGRAS GLOBAIS E ESTRUTURA
+ * ======================================================= */
+body {
+    font-family: 'Inter', 'Segoe UI', Tahoma, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-background-start);
+    color: var(--color-text-dark);
+}
+
+a {
+    text-decoration: none;
+    transition: all var(--transition-speed);
+}
+
+/* 2. CABEÇALHO DE NAVEGAÇÃO (HEADER) */
+header {
+    background-color: var(--color-background-hero); 
+    color: white;
+    padding: 15px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--color-secondary);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+header h1 {
+    color: white;
+    font-size: 1.6em;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+}
+
+/* =======================================================
+ * 3. SEÇÃO HERO (MAIOR IMPACTO VISUAL)
+ * ======================================================= */
+.landing-hero {
+    /* Fundo com Gradiente Sutil de Marca */
+    background: linear-gradient(135deg, var(--color-background-hero) 0%, #3b82f6 100%);
+    color: var(--color-text-light);
+    padding: 100px 50px; /* Aumenta o espaçamento vertical para impacto */
+    text-align: center;
+    min-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden; /* Garante que o gradiente não vaze */
+}
+
+.landing-hero h1 {
+    font-size: 3.5em; /* Título bem grande */
+    margin-bottom: 25px;
+    color: white;
+    max-width: 900px;
+    line-height: 1.1;
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.landing-hero p {
+    font-size: 1.3em; 
+    max-width: 700px;
+    margin: 0 auto 50px;
+    color: #c9e4ff;
+    line-height: 1.4;
+    font-weight: 300;
+}
+
+/* 4. BOTÕES DE AÇÃO PRINCIPAL */
+.action-button-large {
+    padding: 18px 40px;
+    font-size: 1.2em; 
+    border: none;
+    border-radius: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: all 0.35s ease-in-out;
+    margin: 0 15px 20px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* BOTÃO DE ENTRAR (JÁ SOU CLIENTE) - Foco no Login */
+.btn-cliente {
+    background-color: var(--color-secondary); /* Menta Vibrante */
+    color: var(--color-primary);
+}
+
+.btn-cliente:hover {
+    background-color: #279f7a;
+    color: white;
+    transform: translateY(-4px); /* Micro-interação de elevação */
+    box-shadow: 0 10px 25px rgba(52, 211, 153, 0.7);
+}
+
+/* BOTÃO DE DEMO (Atenção Secundária) */
+.btn-demo {
+     background-color: transparent;
+     color: white;
+     border: 2px solid white;
+}
+
+.btn-demo:hover {
+    background-color: white;
+    color: var(--color-primary);
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(255, 255, 255, 0.5);
+}
+
+/* 5. RESPONSIVIDADE BÁSICA */
+@media (max-width: 768px) {
+    .landing-hero {
+        padding: 60px 20px;
+    }
+    .landing-hero h1 {
+        font-size: 2em;
+    }
+    .landing-hero p {
+        font-size: 1em;
+    }
+    .action-button-large {
+        width: 90%;
+        margin: 10px 0;
+        display: block;
+    }
+    header {
+        padding: 15px 20px;
+    }
+    header .action-button-large {
+        display: none; /* Esconde o botão de login no header para mobile */
+    }
+}
