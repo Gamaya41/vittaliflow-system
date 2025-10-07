@@ -3,101 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vittaliflow | Gestão de Clínicas de Terapia com Fluidez</title>
-    <link rel="stylesheet" href="assets/css/admin-styles.css"> 
+    <title>Vittaliflow | O Software Premium para Clínicas de Terapia</title>
     
-    <style>
-        /* Estilos específicos para a Landing Page */
-        .landing-hero {
-            background: linear-gradient(135deg, #1a4369 0%, #3b82f6 100%);
-            color: white;
-            padding: 80px 50px;
-            text-align: center;
-            min-height: 80vh;
-        }
-        .landing-hero h1 {
-            font-size: 3em;
-            margin-bottom: 20px;
-            color: white;
-        }
-        .landing-hero p {
-            font-size: 1.5em;
-            max-width: 800px;
-            margin: 0 auto 40px;
-            color: #d1e5ff;
-        }
-        .action-button-large {
-            padding: 18px 40px;
-            font-size: 1.2em;
-            border-radius: 10px;
-            font-weight: 700;
-            text-transform: uppercase;
-            transition: all 0.3s;
-            cursor: pointer;
-            margin: 0 15px;
-        }
-        .btn-cliente {
-            background-color: var(--color-secondary); /* Verde Menta */
-            color: var(--color-primary);
-        }
-        .btn-cliente:hover {
-            background-color: #279f7a;
-            color: white;
-        }
-        .btn-demo {
-             background-color: transparent;
-             color: white;
-             border: 2px solid white;
-        }
-
-
-        /* VITALIFLOW VARIÁVEIS DE COERÊNCIA (COPIADAS DO admin-styles.css :root) */
-    :root {
-        --color-primary: #1a4369;     
-        --color-secondary: #34d399;   
-        --color-accent: #f59e0b;      
-        --color-background-hero: #1a4369; 
-        --color-text-dark: #1f2937;
-        --color-text-subtle: #6b7280; /* NOVA VARIÁVEL PARA O PARÁGRAFO */
-        --color-surface: #ffffff;
-        --shadow-base: 0 4px 15px rgba(0, 0, 0, 0.2);
-        --border-radius-lg: 10px;
-    }
-    </style>
-
+    <link rel="stylesheet" href="assets/css/landing-styles.css"> 
+    
 </head>
 <body>
-    <header style="padding: 15px 50px; border-bottom: none; box-shadow: none;">
-        <div style="display: flex; align-items: center;">
-            <h1 style="font-size: 1.5em; color: white;">VITTALIFLOW</h1>
+    
+    <header>
+        <div>
+            <h1>VITTALIFLOW</h1>
         </div>
-        <a href="login.html" class="action-button-large btn-cliente" style="text-decoration: none;">
+        <a href="login.html" class="action-button-large btn-cliente" style="padding: 10px 20px; font-size: 1em;">
             JÁ SOU CLIENTE
         </a>
     </header>
 
     <div class="landing-hero">
-        <h1>Transforme sua Clínica de Terapia com Fluidez Total</h1>
-        <p>O Vittaliflow é o sistema de gestão intuitivo que une a eficiência da organização com a calma do processo, liberando você para focar no que realmente importa: a cura e o bem-estar dos seus pacientes.</p>
         
-        <a href="#" class="action-button-large btn-demo" style="text-decoration: none;">
-            SOLICITAR DEMO
-        </a>
-        <a href="login.html" class="action-button-large btn-cliente" style="text-decoration: none;">
-            ENTRAR (Já Sou Cliente)
-        </a>
+        <div class="hero-text-content">
+             <h1>Transforme sua Clínica de Terapia com Fluidez Total</h1>
+            <p>O Vittaliflow é o sistema de gestão intuitivo que une a eficiência da organização com a calma do processo, liberando você para focar no que realmente importa: a cura e o bem-estar dos seus pacientes.</p>
+            
+            <a href="#" class="action-button-large btn-demo">
+                SOLICITAR DEMO (Teste Grátis)
+            </a>
+            <a href="login.html" class="action-button-large btn-cliente">
+                ENTRAR (Já Sou Cliente)
+            </a>
+        </div>
+        
+        <div class="hero-mockup-area">
+            </div>
     </div>
-<section class="value-section" style="padding: 80px 50px; text-align: center;">
-        <h2 style="color: var(--color-primary); font-size: 2.5em; margin-bottom: 20px;">
-            A Excelência em Gestão Terapêutica
-        </h2>
-        <p style="color: var(--color-text-dark); max-width: 800px; margin: 0 auto 60px;">
+    
+    <section class="value-section">
+        <h2>A Excelência em Gestão Terapêutica</h2>
+        <p style="color: var(--color-text-subtle); max-width: 800px; margin: 0 auto 60px;">
             Criamos o Vittaliflow com base em três pilares para garantir que sua clínica opere com a máxima fluidez, segurança e foco no paciente.
         </p>
 
-        <div class="pillars-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; max-width: 1100px; margin: 0 auto;">
+        <div class="pillars-grid grid-container">
             
-            <div class="pillar-card" style="background-color: var(--color-surface); padding: 30px; border-radius: var(--border-radius-lg); box-shadow: var(--shadow-base); border-top: 5px solid var(--color-secondary);">
+            <div class="pillar-card" style="border-top-color: var(--color-secondary);">
                 <h3 style="color: var(--color-secondary); font-size: 1.8em; margin-bottom: 15px;">
                     1. Fluxo de Cliente Digital
                 </h3>
@@ -106,7 +54,7 @@
                 </p>
             </div>
 
-            <div class="pillar-card" style="background-color: var(--color-surface); padding: 30px; border-radius: var(--border-radius-lg); box-shadow: var(--shadow-base); border-top: 5px solid var(--color-primary);">
+            <div class="pillar-card" style="border-top-color: var(--color-primary);">
                 <h3 style="color: var(--color-primary); font-size: 1.8em; margin-bottom: 15px;">
                     2. Gestão Financeira Clara
                 </h3>
@@ -115,7 +63,7 @@
                 </p>
             </div>
 
-            <div class="pillar-card" style="background-color: var(--color-surface); padding: 30px; border-radius: var(--border-radius-lg); box-shadow: var(--shadow-base); border-top: 5px solid var(--color-accent);">
+            <div class="pillar-card" style="border-top-color: var(--color-accent);">
                 <h3 style="color: var(--color-accent); font-size: 1.8em; margin-bottom: 15px;">
                     3. Acompanhamento de Pacotes
                 </h3>
@@ -126,5 +74,68 @@
             
         </div>
     </section>
-    </body>
+    
+    <section class="value-section" style="background-color: white; padding-top: 100px; padding-bottom: 100px;">
+        <h2 style="color: var(--color-secondary); font-size: 2.2em; margin-bottom: 20px;">
+            Veja a Mágica Acontecer em 3 Passos
+        </h2>
+        <p style="color: var(--color-text-subtle); max-width: 900px; margin: 0 auto 70px;">
+            Nossa tecnologia elimina a fricção entre o cliente e o primeiro atendimento, transformando o "agendamento" em "onboarding".
+        </p>
+
+        <div class="grid-container" style="grid-template-columns: repeat(3, 1fr); gap: 20px;">
+            <div class="process-step" style="border-top: 5px solid var(--color-secondary); padding: 25px; border-radius: var(--border-radius-lg); background-color: var(--color-light-bg); box-shadow: var(--shadow-base);">
+                <h3 style="font-size: 2.5em; color: var(--color-secondary); margin-bottom: 10px;">1.</h3>
+                <h4 style="color: var(--color-primary); margin-bottom: 10px;">Envio Imediato</h4>
+                <p style="color: var(--color-text-subtle);">O terapeuta envia o link único da Anamnese via WhatsApp ao confirmar o interesse.</p>
+            </div>
+            
+            <div class="process-step" style="border-top: 5px solid var(--color-primary); padding: 25px; border-radius: var(--border-radius-lg); background-color: var(--color-light-bg); box-shadow: var(--shadow-base);">
+                 <h3 style="font-size: 2.5em; color: var(--color-primary); margin-bottom: 10px;">2.</h3>
+                <h4 style="color: var(--color-primary); margin-bottom: 10px;">Preenchimento Rápido</h4>
+                <p style="color: var(--color-text-subtle);">O paciente preenche a ficha no celular. O formato de seleção minimiza o tempo e erros.</p>
+            </div>
+            
+            <div class="process-step" style="border-top: 5px solid var(--color-accent); padding: 25px; border-radius: var(--border-radius-lg); background-color: var(--color-light-bg); box-shadow: var(--shadow-base);">
+                <h3 style="font-size: 2.5em; color: var(--color-accent); margin-bottom: 10px;">3.</h3>
+                <h4 style="color: var(--color-primary); margin-bottom: 10px;">Sincronização Mágica</h4>
+                <p style="color: var(--color-text-subtle);">Ao abrir o painel, a ficha do cliente (novo ou existente) é atualizada automaticamente no seu Dashboard.</p>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="testimonials-section">
+        <h2>Quem Usa, Comprova: A Eficiência do Vittaliflow</h2>
+        <p style="color: var(--color-text-dark); max-width: 700px; margin: 0 auto 50px;">
+            Nossas clientes estão transformando a rotina de suas clínicas, ganhando tempo para cuidar de si e de seus pacientes.
+        </p>
+
+        <div class="testimonials-grid grid-container">
+            
+            <div class="testimonial-card">
+                <p style="font-style: italic; color: var(--color-text-dark); margin-bottom: 20px; line-height: 1.5;">
+                    "Antes eu perdia horas com a agenda e papéis. Com o Vittaliflow, o preenchimento da anamnese é automático e eu recuperei pelo menos 5 horas por semana para focar nos atendimentos."
+                </p>
+                <div style="font-weight: 700; color: var(--color-secondary);">
+                    — Dra. Clara Mendes, <span style="font-weight: 500; color: var(--color-text-subtle);">Clínica Paz Interior</span>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <p style="font-style: italic; color: var(--color-text-dark); margin-bottom: 20px; line-height: 1.5;">
+                    "A visão do dashboard financeiro é um divisor de águas. Finalmente sei exatamente de onde vêm minhas receitas (pacotes vs. avulsos) e o que preciso faturar no mês. Um software feito por quem entende de terapia."
+                </p>
+                <div style="font-weight: 700; color: var(--color-secondary);">
+                    — Lucas Ramos, <span style="font-weight: 500; color: var(--color-text-subtle);">Espaço Equilíbrio</span>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+    
+    <footer style="padding: 30px 50px; background-color: var(--color-text-dark); color: #c0c0c0; font-size: 0.9em; text-align: center; border-top: 5px solid var(--color-secondary);">
+        &copy; 2025 Vittaliflow - Todos os direitos reservados.
+    </footer>
+</body>
 </html>
