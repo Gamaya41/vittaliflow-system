@@ -83,9 +83,17 @@ header h1 {
     padding-bottom: 50px; 
 }
 
+/* 4. SEÇÃO HERO (MÁXIMO IMPACTO) - ADICIONAR FLEX NO CONTAINER DOS BOTÕES */
 .hero-text-content {
+    /* ... regras anteriores ... */
     padding: 50px 0;
     text-align: left;
+    
+    /* NOVO: Container para os botões para forçar o alinhamento */
+    display: flex;
+    flex-wrap: wrap; /* Permite quebrar se não houver espaço (responsividade) */
+    align-items: center;
+    justify-content: flex-start; /* Alinha os botões à esquerda */
 }
 
 .landing-hero h1 {
@@ -215,19 +223,22 @@ header h1 {
 }
 
 
-/* 8. REGRAS GERAIS DE BOTÕES */
+/* 8. REGRAS GERAIS DE BOTÕES (CORRIGIDO PARA O LAYOUT INLINE) */
 .action-button-large {
     padding: 20px 45px;
-    font-size: 1.3em; 
+    font-size: 1.3em;
     border-radius: 12px;
     font-weight: 700;
     text-transform: uppercase;
     transition: all 0.35s ease-in-out;
-    margin: 0 15px 20px;
+    /* REMOVE MARGEM HORIZONTAL AQUI E DEIXA SÓ NO HTML PARA CONTROLE */
+    margin: 0 0 20px 0; 
+    display: inline-block; /* Garante que eles fiquem lado a lado */
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
     cursor: pointer;
     text-decoration: none;
 }
+
 
 .btn-cliente { background-color: var(--color-secondary); color: var(--color-primary); }
 .btn-cliente:hover { background-color: #279f7a; color: white; transform: translateY(-4px); }

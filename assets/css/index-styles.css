@@ -1,30 +1,31 @@
 /*
  * =======================================================
- * VITTALIFLOW VITRINE - ESTILO DA LANDING PAGE (INDEX.HTML)
+ * VITTALIFLOW LANDING PAGE - ESTILOS FINAIS
  * CONCEITO: Contraste Profissional, Minimalismo Moderno e Foco na Conversão.
- * ======================================================= */
+ * =======================================================
+ */
 
-/* -- VARIÁVEIS -- (Coerência com o Sistema) */
+/* 1. VARIÁVEIS DE COERÊNCIA (As mesmas do sistema principal) */
 :root {
     --color-primary: #1a4369;     /* Azul Marinho Profundo (Base) */
     --color-secondary: #34d399;   /* Verde Água Sereno (Ação) */
     --color-accent: #f59e0b;      /* Âmbar Suave (Destaque) */
-    --color-background-hero: #1a4369; /* Fundo Sólido para o Hero */
-    --color-text-dark: #1f2937;   /* Texto Scuro (Corpo) */
-    --color-text-light: #e0e7ff;  /* Texto Claro (Hero) */
-    --shadow-base: 0 4px 15px rgba(0, 0, 0, 0.2);
+    --color-background-hero: #1a4369; 
+    --color-text-dark: #1f2937;
+    --color-text-subtle: #6b7280; 
+    --color-surface: #ffffff;
+    --color-light-bg: #f3f4f6; /* Fundo Suave para seções secundárias */
+    --shadow-base: 0 4px 15px rgba(0, 0, 0, 0.1); 
     --border-radius-lg: 10px;
     --transition-speed: 0.3s;
 }
 
-/* =======================================================
- * 1. REGRAS GLOBAIS E ESTRUTURA
- * ======================================================= */
+/* 2. REGRAS GLOBAIS E ESTRUTURA */
 body {
     font-family: 'Inter', 'Segoe UI', Tahoma, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: var(--color-background-start);
+    background-color: var(--color-surface);
     color: var(--color-text-dark);
 }
 
@@ -33,10 +34,9 @@ a {
     transition: all var(--transition-speed);
 }
 
-/* 2. CABEÇALHO DE NAVEGAÇÃO (HEADER) */
+/* 3. CABEÇALHO DE NAVEGAÇÃO */
 header {
     background-color: var(--color-background-hero); 
-    color: white;
     padding: 15px 50px;
     display: flex;
     justify-content: space-between;
@@ -53,77 +53,144 @@ header h1 {
     font-size: 1.6em;
     font-weight: 700;
     letter-spacing: 0.05em;
+    margin: 0;
 }
 
-/* =======================================================
- * 3. SEÇÃO HERO (MAIOR IMPACTO VISUAL)
- * ======================================================= */
+/* 4. SEÇÃO HERO (MÁXIMO IMPACTO) */
 .landing-hero {
-    /* Fundo com Gradiente Sutil de Marca */
     background: linear-gradient(135deg, var(--color-background-hero) 0%, #3b82f6 100%);
-    color: var(--color-text-light);
-    padding: 100px 50px; /* Aumenta o espaçamento vertical para impacto */
+    color: white;
+    padding: 120px 50px; 
     text-align: center;
-    min-height: 85vh;
+    min-height: 80vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    position: relative;
-    overflow: hidden; /* Garante que o gradiente não vaze */
 }
 
 .landing-hero h1 {
-    font-size: 3.5em; /* Título bem grande */
+    font-size: 3.8em; 
     margin-bottom: 25px;
     color: white;
-    max-width: 900px;
+    max-width: 1000px;
     line-height: 1.1;
-    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
 }
 
 .landing-hero p {
-    font-size: 1.3em; 
-    max-width: 700px;
+    font-size: 1.4em; 
+    max-width: 750px;
     margin: 0 auto 50px;
     color: #c9e4ff;
-    line-height: 1.4;
-    font-weight: 300;
 }
 
-/* 4. BOTÕES DE AÇÃO PRINCIPAL */
+/* 5. SEÇÃO DE VALOR E PILARES */
+.value-section {
+    padding: 80px 50px; 
+    text-align: center;
+    background-color: var(--color-light-bg); /* Fundo suave */
+}
+
+.value-section h2 {
+    color: var(--color-primary); 
+    font-size: 2.5em; 
+    margin-bottom: 60px;
+    border-bottom: 3px solid var(--color-secondary);
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.pillar-card {
+    background-color: var(--color-surface); 
+    padding: 30px; 
+    border-radius: var(--border-radius-lg); 
+    box-shadow: var(--shadow-base);
+    border-top: 5px solid; 
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.pillar-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* 6. SEÇÃO TESTEMUNHOS E PROVA SOCIAL */
+.testimonials-section {
+    padding: 80px 50px; 
+    background-color: white;
+    text-align: center;
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.testimonial-card {
+    background-color: #f7f7f7; 
+    border-left: 5px solid var(--color-secondary);
+    padding: 30px; 
+    border-radius: var(--border-radius-lg); 
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    text-align: left;
+    transition: box-shadow 0.3s;
+}
+
+.testimonial-card:hover {
+    box-shadow: 0 5px 15px rgba(52, 211, 153, 0.3);
+}
+
+/* 7. CTA FINAL */
+.cta-final {
+    background-color: var(--color-primary); 
+    padding: 80px 50px; 
+    text-align: center;
+    border-top: 3px solid var(--color-secondary);
+}
+
+/* 8. REGRAS GERAIS DE BOTÕES */
 .action-button-large {
     padding: 18px 40px;
     font-size: 1.2em; 
     border: none;
-    border-radius: 10px;
+    border-radius: var(--border-radius-lg);
     font-weight: 700;
     text-transform: uppercase;
     transition: all 0.35s ease-in-out;
     margin: 0 15px 20px;
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
 }
 
-/* BOTÃO DE ENTRAR (JÁ SOU CLIENTE) - Foco no Login */
 .btn-cliente {
-    background-color: var(--color-secondary); /* Menta Vibrante */
+    background-color: var(--color-secondary); 
     color: var(--color-primary);
 }
-
 .btn-cliente:hover {
     background-color: #279f7a;
     color: white;
-    transform: translateY(-4px); /* Micro-interação de elevação */
+    transform: translateY(-4px); 
     box-shadow: 0 10px 25px rgba(52, 211, 153, 0.7);
 }
 
-/* BOTÃO DE DEMO (Atenção Secundária) */
 .btn-demo {
      background-color: transparent;
      color: white;
      border: 2px solid white;
 }
-
 .btn-demo:hover {
     background-color: white;
     color: var(--color-primary);
@@ -131,16 +198,16 @@ header h1 {
     box-shadow: 0 10px 25px rgba(255, 255, 255, 0.5);
 }
 
-/* 5. RESPONSIVIDADE BÁSICA */
-@media (max-width: 768px) {
-    .landing-hero {
-        padding: 60px 20px;
+/* 9. RESPONSIVIDADE */
+@media (max-width: 1000px) {
+    .pillars-grid, .testimonials-grid {
+        grid-template-columns: 1fr;
     }
     .landing-hero h1 {
-        font-size: 2em;
+        font-size: 2.5em;
     }
     .landing-hero p {
-        font-size: 1em;
+        font-size: 1.1em;
     }
     .action-button-large {
         width: 90%;
@@ -149,8 +216,5 @@ header h1 {
     }
     header {
         padding: 15px 20px;
-    }
-    header .action-button-large {
-        display: none; /* Esconde o botão de login no header para mobile */
     }
 }
