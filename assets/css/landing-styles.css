@@ -70,12 +70,12 @@ header {
 /* REGRA CRÍTICA DA LOGO (CORREÇÃO DE TAMANHO E MARGEM) */
 #header-logo-final {
     /* CORREÇÃO APLICADA: Reduzido de 280px para 120px */
-    height: 120px !important; 
+    height: 280px !important; 
     width: auto !important;
     
     /* CORREÇÃO APLICADA: Margem negativa ajustada para -40px */
-    margin-top: -40px; 
-    margin-bottom: -40px; 
+    margin-top: -150px; 
+    margin-bottom: -150px; 
     
     filter: none;
     transition: all 0.3s;
