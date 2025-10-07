@@ -1,0 +1,1691 @@
+/*
+ * ==============================================================================
+ * AURORA NEXUS PRO - DESIGN SYSTEM V1.0
+ * ESTILO: CLÍNICO VIBRANTE, ALTA DENSIDADE DE INFORMAÇÃO E ENGENHARIA DE DESIGN
+ * AUTOR: GEMINI AI
+ * DATA: 2025-10-07
+ * ==============================================================================
+ */
+
+/* =======================================================
+ * 0. VARIÁVEIS DE SISTEMA (BASE DE CONTROLE)
+ * ======================================================= */
+:root {
+    /* -- PALETA DE CORES -- */
+    --color-primary: #1a4369;     /* Azul Marinho Profundo (Base de Profissionalismo) */
+    --color-secondary: #34d399;   /* Verde Água Sereno (Ação / Vitalidade) */
+    --color-accent: #f59e0b;      /* Âmbar Suave (Alerta e Energia) */
+    --color-danger: #ef4444;      /* Vermelho de Alerta Crítico */
+    --color-text: #1f2937;        /* Texto Principal */
+    --color-text-subtle: #6b7280; /* Texto Secundário Cinza */
+    
+    /* -- NEUTROS E SUPERFÍCIES -- */
+    --color-background: #f9fafb;  /* Fundo da Tela (Quase Branco) */
+    --color-surface: #ffffff;     /* Superfície dos Cards e Menu */
+    --color-offwhite: #f3f4f6;    /* Fundo de Módulos Leve */
+    --color-light-bg: #e0f7f0;    /* Fundo Menta Claro para Destaque */
+    
+    /* -- EFEITOS E TEMPO -- */
+    --shadow-base: 0 6px 15px rgba(0, 0, 0, 0.08); 
+    --shadow-deep: 0 10px 30px rgba(0, 0, 0, 0.15);
+    --transition-speed: 0.3s;
+    --header-bg-color: var(--color-primary);
+    --border-radius-base: 10px;
+    --border-radius-lg: 16px;
+}
+
+/* =======================================================
+ * 1. REGRAS GLOBAIS E REINICIALIZAÇÃO
+ * ======================================================= */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', 'Segoe UI', Tahoma, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: var(--color-text);
+    line-height: 1.6;
+    background-color: var(--color-background);
+    overflow-x: hidden;
+    font-size: 16px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-primary);
+    transition: color var(--transition-speed);
+}
+
+a:hover {
+    color: var(--color-secondary);
+}
+
+h1, h2, h3, h4 {
+    color: var(--color-primary); 
+    font-weight: 700;
+    margin-top: 0;
+}
+
+/* Base de Painel Limpo (Clear Panel) */
+.clear-panel {
+    background-color: var(--color-surface);
+    border-radius: var(--border-radius-base);
+    box-shadow: var(--shadow-base);
+    transition: box-shadow var(--transition-speed);
+}
+
+/* Efeito de Scrollbar Personalizado (Melhoria de Usabilidade) */
+::-webkit-scrollbar {
+    width: 8px;
+    background-color: #f0f0f0;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--color-secondary);
+    border-radius: 10px;
+    border: 2px solid var(--color-background);
+}
+
+/* =======================================================
+ * 2. LAYOUT PRINCIPAL (GRID E FLUIDEZ)
+ * ======================================================= */
+main {
+    display: flex;
+    min-height: 90vh;
+    max-width: 95%;
+    margin: 30px auto;
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-deep); 
+    overflow: hidden;
+    background-color: var(--color-surface);
+}
+
+/* 2.1 CABEÇALHO (HEADER) */
+header {
+    background-color: var(--header-bg-color); 
+    color: white;
+    padding: 20px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 3px solid var(--color-secondary);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    position: relative;
+    z-index: 10;
+}
+
+header h1 {
+    color: white;
+    font-size: 2.1em;
+    font-weight: 400;
+}
+
+header p {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.9em;
+}
+
+#header-logo {
+    height: 40px !important;
+    margin-right: 15px;
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
+}
+
+/* 2.2 ÁREA DE CONTEÚDO */
+#content-area {
+    flex-grow: 1;
+    padding: 40px 50px; 
+    background-color: var(--color-background);
+}
+
+#content-area h2 {
+    color: var(--color-primary);
+    border-bottom: 2px solid var(--color-secondary); 
+    padding-bottom: 15px;
+    margin-bottom: 40px;
+    font-size: 1.9em;
+}
+
+/* 2.3 FOOTER */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: var(--color-primary);
+    color: white;
+    font-size: 0.85em;
+    border-top: 3px solid var(--color-secondary);
+    box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* =======================================================
+ * 3. NAVEGAÇÃO E MENU LATERAL (SIDEBAR DYNAMIC)
+ * ======================================================= */
+#sidebar-menu {
+    width: 260px;
+    background-color: var(--color-surface); 
+    padding: 30px 0;
+    border-right: 1px solid #e5e7eb;
+}
+
+#sidebar-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#sidebar-menu li {
+    margin-bottom: 5px;
+}
+
+#sidebar-menu li a {
+    display: block;
+    padding: 16px 30px; 
+    color: var(--color-text);
+    border-left: 5px solid transparent; 
+    transition: all var(--transition-speed);
+    font-size: 1.0em;
+    font-weight: 500;
+    position: relative;
+    z-index: 1;
+}
+
+/* HOVER DINÂMICO */
+#sidebar-menu li a:hover {
+    background-color: rgba(52, 211, 153, 0.1); 
+    color: var(--color-secondary);
+    transform: translateX(4px); 
+    box-shadow: 0 0 5px rgba(52, 211, 153, 0.2);
+}
+
+/* ESTADO ATIVO (O Foco Real) */
+#sidebar-menu li a.active { 
+    background: linear-gradient(90deg, rgba(52, 211, 153, 0.15) 0%, rgba(52, 211, 153, 0.05) 100%);
+    border-left: 5px solid var(--color-secondary); 
+    color: var(--color-primary); 
+    font-weight: 700;
+    box-shadow: inset 0 0 5px rgba(52, 211, 153, 0.4);
+}
+
+/* BOTÃO LOGOUT */
+#logout-btn {
+    width: 90%;
+    padding: 12px 0;
+    margin: 20px 5% 0;
+    background-color: var(--color-danger);
+    color: white !important;
+    border: none;
+    border-radius: var(--border-radius-base);
+    font-weight: 700;
+    box-shadow: 0 4px 15px rgba(239, 68, 68, 0.4);
+    transition: all var(--transition-speed);
+}
+#logout-btn:hover {
+    background-color: #d93d3d;
+    transform: scale(1.02);
+}
+
+
+/* =======================================================
+ * 4. COMPONENTES: BOTÕES E AÇÕES (MICRO-INTERAÇÕES)
+ * ======================================================= */
+
+/* BOTÃO PRINCIPAL (Ação Menta Luminosa) */
+.add-button {
+    background-color: var(--color-secondary); 
+    color: var(--color-primary); 
+    padding: 15px 30px; 
+    border: none;
+    border-radius: 10px;
+    font-weight: 700;
+    box-shadow: 0 6px 20px rgba(52, 211, 153, 0.5);
+    transition: all var(--transition-speed);
+    cursor: pointer;
+}
+
+.add-button:hover {
+    background-color: #279f7a; 
+    color: white;
+    box-shadow: 0 10px 30px rgba(52, 211, 153, 0.8);
+    transform: translateY(-3px); 
+}
+
+/* BOTÃO SECUNDÁRIO/CANCELAR/IMPRIMIR */
+.cancel-button {
+    background-color: #f3f4f6; 
+    color: var(--color-text);
+    padding: 15px 30px; 
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
+    font-weight: 500;
+    transition: all var(--transition-speed);
+    cursor: pointer;
+}
+
+.cancel-button:hover {
+    background-color: #e5e7eb;
+    color: var(--color-primary);
+}
+
+
+/* =======================================================
+ * 5. COMPONENTES: INPUTS E FORMULÁRIOS (FOCO MÁXIMO)
+ * ======================================================= */
+
+/* Container dos Formulários (Bloco de Destaque Flutuante) */
+#add-despesa-form-container, #add-agendamento-form-container,
+#add-terapeuta-form-container, #add-tratamento-form-container, 
+#add-sala-form-container, #add-pacote-form-container,
+#change-password-container, #empresa-container, #add-cliente-form-container {
+    background-color: var(--color-surface);
+    padding: 40px; 
+    border-radius: var(--border-radius-lg); 
+    box-shadow: var(--shadow-deep); /* Sombra mais profunda */
+    margin-bottom: 40px;
+    border: 1px solid rgba(52, 211, 153, 0.1); 
+}
+
+/* Títulos de Formulário (Sub-Hierarquia) */
+#add-cliente-form-container h3, 
+#add-agendamento-form-container h3,
+#add-terapeuta-form-container h3 {
+    border-bottom: 1px solid #e5e7eb; 
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+    color: var(--color-primary);
+}
+
+/* GRUPOS DE INPUTS */
+.input-group-admin {
+    margin-bottom: 30px; 
+}
+
+.input-group-admin label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600; 
+    color: var(--color-text); 
+    font-size: 1.05em; 
+    transition: color 0.3s;
+}
+
+/* INPUTS MODERNOS - O BLOCO DE PREENCHIMENTO VISÍVEL */
+.input-group-admin input,
+.input-group-admin select,
+.input-group-admin textarea {
+    width: 95%; 
+    padding: 16px 15px; 
+    border: 1px solid #d1d5db; 
+    border-left: 6px solid #d1d5db; 
+    border-radius: 8px;
+    background-color: var(--color-surface); 
+    transition: all 0.3s;
+    font-size: 1.1em; 
+}
+
+/* FOCO MÁXIMO: Borda lateral Verde Sereno VIBRANTE e Brilho */
+.input-group-admin input:focus,
+.input-group-admin select:focus,
+.input-group-admin textarea:focus {
+    border: 1px solid var(--color-secondary); 
+    border-left: 6px solid var(--color-secondary); /* Borda lateral VIBRANTE no foco */
+    box-shadow: 0 0 0 4px rgba(52, 211, 153, 0.35); /* Brilho maior no foco */
+    outline: none;
+    background-color: #fcfcfc;
+    transform: scaleX(1.005); 
+}
+
+
+/* =======================================================
+ * 6. COMPONENTES: DASHBOARD E KPI (ELEVATION)
+ * ======================================================= */
+#kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-bottom: 40px !important;
+}
+
+.kpi-card {
+    background-color: var(--color-surface); 
+    border-radius: var(--border-radius-lg); 
+    box-shadow: var(--shadow-base);
+    padding: 30px;
+    border: 1px solid #f0f0f0;
+    transition: all var(--transition-speed);
+    text-align: center;
+}
+
+.kpi-card:hover {
+    transform: translateY(-8px); /* Elevação perceptível no hover */
+    box-shadow: var(--shadow-deep);
+    border-left: 5px solid var(--color-primary); /* Borda de Destaque Azul */
+}
+
+.kpi-card h3 {
+    color: var(--color-text-subtle);
+    font-size: 1em;
+    font-weight: 500;
+}
+
+.kpi-value {
+    color: var(--color-primary);
+    font-size: 3em;
+    font-weight: 800;
+    margin-top: 5px;
+}
+
+.kpi-financeiro .kpi-value {
+    color: var(--color-secondary);
+}
+.kpi-financeiro .kpi-value[style*="danger"] {
+    color: var(--color-danger) !important;
+}
+
+
+/* =======================================================
+ * 7. COMPONENTES: TABELAS DE DADOS (FICHA ELEVADA)
+ * ======================================================= */
+
+#terapeutas-list, #clientes-list, #upcoming-list, #agendamentos-list, #pacotes-list {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 12px; /* Espaçamento para as fichas */
+    margin-top: 25px;
+}
+
+/* Cabeçalhos da Tabela */
+#terapeutas-list thead th, #clientes-list thead th, #agendamentos-list thead th {
+    background-color: var(--color-offwhite);
+    padding: 15px 18px;
+    color: var(--color-primary);
+    font-weight: 700;
+    text-align: left;
+    border-bottom: 2px solid #e5e7eb;
+}
+
+/* CÉLULAS INDIVIDUAIS (A FICHA DE DADOS) */
+#terapeutas-list td, #clientes-list td, #upcoming-list td, #agendamentos-list td, #pacotes-list td {
+    background-color: var(--color-surface);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* Sombra suave para levantar */
+    border: 1px solid #f3f4f6;
+    padding: 16px 18px; 
+    font-size: 0.95em;
+    transition: all var(--transition-speed);
+}
+
+/* HOVER DA LINHA: DESTAQUE VIBRANTE NA LINHA INTEIRA */
+#terapeutas-list tr:hover td, #clientes-list tr:hover td, #agendamentos-list tr:hover td, #upcoming-list tr:hover td, #pacotes-list tr:hover td {
+    background-color: var(--color-light-bg); 
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    border-left: 6px solid var(--color-accent); /* Borda Âmbar de Atenção */
+    transform: scale(1.005);
+}
+
+/* BOTÕES DE AÇÃO NA TABELA */
+.action-btn {
+    padding: 8px 14px;
+    margin-left: 10px;
+    border-radius: 6px;
+    font-size: 0.85em;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.action-btn.edit-btn {
+    background-color: var(--color-primary); 
+    color: white;
+}
+.action-btn.edit-btn:hover {
+    background-color: #153874;
+    transform: translateY(-2px);
+}
+
+.action-btn.delete-btn {
+    background-color: var(--color-danger);
+    color: white;
+}
+.action-btn.delete-btn:hover {
+    background-color: #d93d3d;
+    transform: translateY(-2px);
+}
+
+/* =======================================================
+ * 8. MODAL DE VISUALIZAÇÃO (OVERLAY)
+ * ======================================================= */
+#quick-view-modal > div {
+    background-color: var(--color-surface);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-deep);
+}
+
+#quick-view-tabs button {
+    background-color: transparent;
+    border: none;
+    color: var(--color-text-subtle);
+    padding: 10px 15px;
+    transition: all var(--transition-speed);
+}
+
+#quick-view-tabs button.active {
+    color: var(--color-secondary);
+    border-bottom: 3px solid var(--color-secondary);
+    font-weight: 600;
+}
+
+#quick-view-modal #modal-edit-btn, #quick-view-modal #modal-schedule-btn {
+    padding: 10px 20px;
+    font-size: 0.9em;
+    box-shadow: 0 4px 10px rgba(52, 211, 153, 0.4);
+}
+#quick-view-modal #modal-schedule-btn {
+    background-color: var(--color-primary);
+    box-shadow: 0 4px 10px rgba(26, 67, 105, 0.5);
+}
+
+/* =======================================================
+ * 9. ACESSIBILIDADE E UTILS (UX ENHANCEMENTS)
+ * ======================================================= */
+
+/* 9.1 FOCUS RING (Navegação por Teclado - CRUCIAL PARA ACESSIBILIDADE) */
+/* Aplica um anel de foco personalizado e vibrante a todos os elementos focáveis */
+:focus {
+    outline: none; /* Remove o contorno padrão feio */
+    box-shadow: 0 0 0 3px var(--color-accent), 0 0 0 5px rgba(251, 191, 36, 0.4); /* Anel Ambar suave */
+    transition: box-shadow var(--transition-speed);
+}
+
+/* Os inputs já têm foco personalizado, então focamos em botões e links */
+.add-button:focus, 
+.cancel-button:focus,
+#logout-btn:focus,
+#sidebar-menu a:focus {
+    outline: 2px dashed var(--color-primary);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px var(--color-accent); /* Anel Âmbar para guiar o usuário */
+}
+
+/* 9.2 UTILS DE VISIBILIDADE */
+
+/* Oculta visualmente, mas mantém acessível para leitores de tela */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* =======================================================
+ * 10. ANIMAÇÕES DE COMPONENTE (MICRO-INTERAÇÕES)
+ * ======================================================= */
+
+/* Animação para a Lista da Sidebar (Sentimento de "App Nátivo") */
+#sidebar-menu li {
+    opacity: 1;
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+}
+
+/* Efeito sutil para os títulos de formulário */
+#content-area h3 {
+    letter-spacing: 0.02em;
+    color: var(--color-primary);
+}
+
+/* Chave de Animação para Botões de Ação na Tabela */
+@keyframes pulse-edit {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); box-shadow: 0 0 10px rgba(26, 67, 105, 0.5); }
+    100% { transform: scale(1); }
+}
+
+.action-btn.edit-btn:hover {
+    animation: pulse-edit 0.5s ease-out 1;
+}
+
+/* =======================================================
+ * 11. AJUSTES DE DENSIDADE (PARA TELAS COM MAIS INFORMAÇÃO)
+ * ======================================================= */
+
+/* Ajuste sutil para o espaçamento da tabela */
+#terapeutas-list, #clientes-list, #agendamentos-list {
+    border-spacing: 0 8px; /* Reduz ligeiramente o espaçamento entre linhas */
+}
+
+/* Espaçamento interno das células */
+#terapeutas-list td, #clientes-list td, #agendamentos-list td {
+    padding: 14px 18px; /* Ajusta o padding vertical para densidade de informação */
+}
+
+
+/* =======================================================
+ * 12. BREAKPOINTS DE RESPONSIVIDADE (MOBILE PRIMEIRO)
+ * ======================================================= */
+
+/* Max-Width 1200px (Telas de Laptop/Monitores Menores) */
+@media (max-width: 1200px) {
+    main {
+        max-width: 98%;
+        margin: 20px auto;
+    }
+    
+    #content-area {
+        padding: 30px 40px;
+    }
+
+    #sidebar-menu {
+        width: 220px; /* Sidebar mais compacta */
+    }
+
+    #sidebar-menu li a {
+        padding: 14px 20px;
+    }
+
+    #kpi-grid {
+        grid-template-columns: repeat(2, 1fr); /* Passa para duas colunas nos KPIs */
+        gap: 20px;
+    }
+
+    .kpi-card {
+        padding: 25px;
+    }
+}
+
+/* Max-Width 768px (Tablets e Mobile) */
+@media (max-width: 768px) {
+    header {
+        padding: 15px 20px;
+    }
+    
+    main {
+        flex-direction: column; /* Stack Menu and Content */
+        margin: 10px auto;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    /* Oculta o Menu (Seria ativado por um botão JS em produção) */
+    #sidebar-menu {
+        width: 100%; 
+        border-right: none;
+        border-bottom: 1px solid #e5e7eb;
+        border-radius: 0;
+        padding: 10px 0;
+        box-shadow: var(--shadow-base);
+        display: none; /* Manteremos oculto no CSS para não quebrar o layout */
+    }
+    
+    #content-area {
+        padding: 20px;
+    }
+    
+    #kpi-grid {
+        grid-template-columns: 1fr; /* KPIs em uma única coluna vertical */
+    }
+
+    .input-group-admin input,
+    .input-group-admin select,
+    .input-group-admin textarea {
+        width: 100%; /* Inputs em largura total */
+    }
+}
+/* =======================================================
+ * 13. TIPOGRAFIA E HIERARQUIA DE TEXTO (FINE TUNING)
+ * ======================================================= */
+
+h1, h2, h3, h4 {
+    /* Ajuste fino no espaçamento do título */
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+    line-height: 1.2;
+}
+
+/* Títulos de Seção de Nível 3 (usado em formulários) */
+#content-area h3 {
+    font-size: 1.6em;
+    font-weight: 600;
+    color: var(--color-primary);
+    letter-spacing: -0.01em; /* Aperta ligeiramente o kerning para impacto */
+}
+
+/* Parágrafos de Informação */
+p {
+    color: var(--color-text-subtle);
+    margin-bottom: 1.2em;
+    font-size: 1em;
+}
+
+/* Detalhe para Títulos na Tabela (Hierarquia de Leitura) */
+#terapeutas-list th, #clientes-list th, #upcoming-list th {
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-size: 0.85em;
+    color: var(--color-text-subtle);
+}
+
+/* =======================================================
+ * 14. MELHORIA NA INTERAÇÃO COM DADOS (CÉLULA ATIVA)
+ * ======================================================= */
+
+/* Efeito Hover na Célula Individual (para densidade de informação) */
+#terapeutas-list td:hover, #clientes-list td:hover, #agendamentos-list td:hover {
+    background-color: #fcfcfc; /* Fundo do hover de célula mais claro que a linha */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transform: none; /* Desativa a transformação de movimento da linha */
+    border: 1px solid var(--color-secondary); /* Borda aqua na célula ativa */
+}
+
+/* Garante que o hover da linha funcione, mas é mais sutil */
+#terapeutas-list tr:hover td, #clientes-list tr:hover td, #agendamentos-list tr:hover td {
+    background-color: var(--color-light-bg); 
+    /* Remove a borda lateral da linha se a célula estiver em foco, para evitar conflito */
+    border-left: none; 
+}
+
+/* Reforça a Borda Lateral no Hover da Linha */
+#terapeutas-list tr:hover td:first-child, #clientes-list tr:hover td:first-child, #agendamentos-list tr:hover td:first-child {
+    border-left: 6px solid var(--color-accent); 
+}
+
+
+/* =======================================================
+ * 15. ESTILOS DE MENSAGENS E ALERTAS
+ * ======================================================= */
+
+/* Mensagens de Sucesso (Ex: Cadastro Concluído) */
+.success-message, p[id$="-message"][style*="secondary"] {
+    background-color: rgba(52, 211, 153, 0.1); /* Fundo menta suave */
+    color: var(--color-secondary);
+    border: 1px solid var(--color-secondary);
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-weight: 600;
+    margin-top: 15px;
+    box-shadow: 0 2px 4px rgba(52, 211, 153, 0.2);
+}
+
+/* Mensagens de Erro (Ex: Falha no Login, Validação) */
+.error-message, p[id$="-message"][style*="danger"] {
+    background-color: rgba(239, 68, 68, 0.1); /* Fundo vermelho suave */
+    color: var(--color-danger);
+    border: 1px solid var(--color-danger);
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-weight: 600;
+    margin-top: 15px;
+}
+
+/* Estilo para Fieldsets (Ficha de Anamnese) */
+fieldset {
+    border: 1px solid #e5e7eb;
+    padding: 30px;
+    border-radius: var(--border-radius-base);
+    background-color: var(--color-offwhite); /* Fundo diferente para distinguir do bloco principal */
+    margin-top: 20px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.03);
+}
+
+legend {
+    color: var(--color-primary);
+    font-size: 1.2em;
+    font-weight: 700;
+    padding: 0 10px;
+}
+
+/* =======================================================
+ * 16. DETALHE DE AÇÃO E BOTÕES DE LISTA (EXTREME POLISH)
+ * ======================================================= */
+
+/* Reforço de Cor para Ações Específicas no Modal (ex: Editar Ficha) */
+#quick-view-modal #modal-edit-btn,
+#quick-view-modal #modal-schedule-btn {
+    background-color: var(--color-secondary);
+    color: white; /* Texto Branco no Menta para Máximo Contraste na Ação */
+    padding: 12px 20px;
+    font-weight: 700;
+    border: none;
+    border-radius: 6px;
+    box-shadow: 0 4px 15px rgba(52, 211, 153, 0.5);
+    transition: all 0.3s;
+}
+
+#quick-view-modal #modal-edit-btn:hover,
+#quick-view-modal #modal-schedule-btn:hover {
+    background-color: #279f7a; 
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(52, 211, 153, 0.7);
+}
+
+/* Modal Tab - Destaque Fino */
+.modal-tab {
+    background: none;
+    border: none;
+    padding: 10px 15px;
+    color: var(--color-text-subtle);
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s;
+}
+
+.modal-tab.active {
+    color: var(--color-primary);
+    font-weight: 600;
+    border-bottom: 2px solid var(--color-secondary);
+}
+
+/* Estilo para Tabela Interna do Histórico (Mais Compacta) */
+#tratamentos-historico-list {
+    font-size: 0.9em;
+}
+
+#tratamentos-historico-list th {
+    background-color: var(--color-offwhite) !important;
+    color: var(--color-text-subtle) !important;
+    padding: 8px 10px !important;
+}
+
+#tratamentos-historico-list td {
+    padding: 8px 10px !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    border-bottom: 1px dashed #e5e7eb !important;
+    background-color: var(--color-surface) !important;
+    transform: none !important;
+}
+
+
+/* =======================================================
+ * 17. REFORÇO VISUAL DE MÓDULOS (SOMBRA DE CONTEÚDO)
+ * ======================================================= */
+
+/* Aplica uma sombra sutil em toda a área de conteúdo para separá-la do fundo */
+#content-area {
+    /* Manter regras anteriores */
+    flex-grow: 1;
+    padding: 40px 50px; 
+    background-color: var(--color-background);
+    /* Sombra de contorno sutil na área de trabalho */
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.02); 
+}
+
+/* O MODAL DE CRIAÇÃO DO PACOTE DE SESSÃO */
+#pacote-schedule-modal > div {
+    background-color: var(--color-surface);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-deep);
+}
+
+/* Botões dentro do rastreamento de pacote */
+#schedule-grid-container .add-button {
+    padding: 8px 15px !important;
+    font-size: 0.85em !important;
+    box-shadow: 0 2px 5px rgba(52, 211, 153, 0.4);
+    transform: none;
+}
+#schedule-grid-container .add-button:hover {
+    transform: translateY(-1px);
+}
+
+/* =======================================================
+ * 18. REGRAS DE RESPONSIVIDADE AVANÇADA
+ * ======================================================= */
+
+/* Regras de Mobile (Abaixo de 768px) - Ajuste Fino */
+@media (max-width: 768px) {
+    
+    header {
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 15px 10px;
+    }
+    
+    header h1 {
+        font-size: 1.5em;
+        width: 100%;
+        text-align: center;
+        margin-top: 10px;
+    }
+    
+    header p {
+        order: -1; /* Move a saudação para cima */
+        width: 100%;
+        text-align: center;
+        margin-bottom: 5px;
+    }
+    
+    #header-logo {
+        display: none !important; /* Oculta a logo no mobile para economizar espaço */
+    }
+    
+    /* Remove margem do corpo e ajusta padding do conteúdo */
+    main {
+        max-width: 100%;
+        margin: 0;
+    }
+
+    #content-area {
+        padding: 20px 15px;
+    }
+    
+    /* Módulos de formulário em largura total */
+    #add-terapeuta-form-container, #add-cliente-form-container {
+        padding: 20px;
+    }
+
+    .input-group-admin input,
+    .input-group-admin select,
+    .input-group-admin textarea {
+        width: 100%;
+    }
+    
+    /* Empilhamento de botões de ação */
+    .action-btn {
+        margin-left: 0;
+        margin-top: 5px;
+        display: block;
+        width: 100%;
+    }
+
+    /* Reduz o tamanho da fonte dos KPIs no mobile */
+    .kpi-value {
+        font-size: 2.2em;
+    }
+}
+
+/* =======================================================
+ * 19. ESTADOS DE FORMULÁRIO AVANÇADOS (VISIBILIDADE)
+ * ======================================================= */
+
+/* Estiliza campos desabilitados ou somente leitura de forma clara */
+.input-group-admin input[disabled],
+.input-group-admin select[disabled],
+.input-group-admin textarea[disabled],
+.input-group-admin input[readonly] {
+    background-color: var(--color-offwhite); /* Fundo cinza suave */
+    color: var(--color-text-subtle); /* Texto esmaecido */
+    border: 1px dashed #d1ddff; /* Borda tracejada suave */
+    cursor: not-allowed;
+    opacity: 0.9;
+}
+
+/* Garante que o rótulo do campo desabilitado também seja mais sutil */
+.input-group-admin input[disabled] + label,
+.input-group-admin textarea[disabled] + label {
+    color: var(--color-text-subtle);
+}
+
+/* 20. ESTILOS PARA SELETORES DE DATA/TEMPO */
+.input-group-admin input[type="date"],
+.input-group-admin input[type="time"] {
+    /* Define uma largura mais razoável para estes campos */
+    max-width: 280px; 
+    text-transform: uppercase;
+}
+
+/* 21. ESTILO DE FIELDSET (GRUPO DE INFORMAÇÃO) */
+fieldset {
+    margin-bottom: 30px;
+    padding: 35px;
+    border: 1px solid #e5e7eb;
+    border-radius: var(--border-radius-base);
+    background-color: var(--color-offwhite);
+    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.02);
+}
+legend {
+    color: var(--color-primary);
+    font-size: 1.3em;
+    font-weight: 700;
+    padding: 0 10px;
+    border-bottom: none;
+}
+
+/* =======================================================
+ * 22. ESTADOS DE STATUS (LEGENDAS DE DADOS)
+ * ======================================================= */
+
+/* Cor de base para os status (será aplicada via JS inline, mas define o visual) */
+.status-label {
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 0.9em;
+    display: inline-block;
+    min-width: 90px;
+    text-align: center;
+    transition: background-color var(--transition-speed);
+}
+
+/* STATUS: AGENDADO */
+.status-agendado {
+    background-color: rgba(26, 67, 105, 0.1);
+    color: var(--color-primary);
+}
+
+/* STATUS: CONFIRMADO */
+.status-confirmado {
+    background-color: rgba(52, 211, 153, 0.15);
+    color: var(--color-secondary);
+}
+
+/* STATUS: REALIZADO (Sucesso Final) */
+.status-realizado {
+    background-color: rgba(107, 114, 128, 0.1);
+    color: var(--color-text-subtle);
+}
+
+/* STATUS: CANCELADO */
+.status-cancelado {
+    background-color: rgba(239, 68, 68, 0.15);
+    color: var(--color-danger);
+}
+
+/* =======================================================
+ * 23. MÓDULO DE CONFIGURAÇÃO E FINANÇAS (ABAS)
+ * ======================================================= */
+
+/* Estilo para a Barra de Abas (Visualização de Botões) */
+#config-tabs, #financeiro-tabs {
+    border-bottom: 2px solid #e5e7eb;
+    padding-bottom: 5px;
+    margin-bottom: 30px;
+    display: flex;
+    gap: 15px;
+}
+
+#config-tabs button, #financeiro-tabs button {
+    background: none;
+    border: none;
+    padding: 10px 0;
+    color: var(--color-text-subtle);
+    font-weight: 600;
+    font-size: 1em;
+    cursor: pointer;
+    transition: color 0.2s, border-bottom 0.2s;
+    position: relative;
+}
+
+/* Foco nas Abas Ativas */
+#config-tabs button.active {
+    color: var(--color-primary);
+    border-bottom: 3px solid var(--color-secondary); /* Borda Menta */
+}
+
+#financeiro-tabs button.active {
+    color: var(--color-primary);
+    border-bottom: 3px solid var(--color-accent); /* Borda Ambar para Finanças */
+}
+
+/* 24. Estilo para Botões Desabilitados */
+#financeiro-tabs button[disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* =======================================================
+ * 25. ESTILOS DE MODAL (OVERLAY DE INFORMAÇÃO)
+ * ======================================================= */
+
+/* Fundo do Modal */
+#quick-view-modal {
+    background-color: rgba(0, 0, 0, 0.4);
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Painel do Modal */
+#quick-view-modal > div {
+    background-color: var(--color-surface);
+    border-radius: 16px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+    padding: 30px 40px;
+}
+
+/* 26. Botão Fechar Modal */
+#close-modal-btn, #close-schedule-modal-btn {
+    color: var(--color-text-subtle);
+    transition: color 0.2s;
+    font-size: 32px !important;
+}
+#close-modal-btn:hover, #close-schedule-modal-btn:hover {
+    color: var(--color-danger);
+}
+
+/* =======================================================
+ * 27. ESTILOS PARA ELEMENTOS DE GRÁFICO MOCKUP
+ * ======================================================= */
+
+/* Estilo para um futuro container de gráfico */
+.chart-container {
+    background-color: var(--color-surface);
+    border-radius: var(--border-radius-lg);
+    padding: 20px;
+    margin-top: 30px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
+    min-height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-style: italic;
+    color: var(--color-text-subtle);
+}
+
+/* 28. Estilo de Alinhamento para Ações da Tabela */
+#terapeutas-list .actions-cell, #clientes-list .actions-cell {
+    white-space: nowrap; /* Impede que botões quebrem a linha */
+}
+
+/* 29. Estilo para Botões de "Ver Ficha Rápida" */
+button[onclick^="openQuickView"] {
+    background-color: var(--color-light-bg);
+    color: var(--color-primary);
+    border: 1px solid rgba(26, 67, 105, 0.1);
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 4px;
+    transition: all 0.2s;
+}
+button[onclick^="openQuickView"]:hover {
+    background-color: #d1e7e4;
+}
+
+/* 30. REGRAS DE IMPRESSÃO (LIMPEZA TOTAL) */
+@media print {
+    /* Oculta tudo que não é dado essencial */
+    header, #sidebar-menu, footer, .actions-cell, .cancel-button, .add-button {
+        display: none !important;
+    }
+    
+    /* Força o conteúdo a usar toda a largura e remove sombras */
+    body, main, #content-area {
+        background-color: white !important;
+        box-shadow: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100% !important;
+    }
+    
+    /* Limpa o visual das tabelas para impressão em papel */
+    table, table td, table th {
+        border-color: #aaa !important;
+        box-shadow: none !important;
+        background-color: white !important;
+    }
+}
+
+/* =======================================================
+ * 31. ESTILOS DE INICIALIZAÇÃO E AMBIENTE (ANIMAÇÃO)
+ * ======================================================= */
+
+/* Animação de Fundo ao Carregar (Sentimento de "Inicialização do Sistema") */
+@keyframes fadeInBackground {
+    from { opacity: 0.8; }
+    to { opacity: 1; }
+}
+body {
+    animation: fadeInBackground 0.8s ease-out forwards;
+}
+
+/* Transição sutil no Main (o bloco central) para quando o conteúdo muda */
+main {
+    transition: box-shadow var(--transition-speed), transform 0.5s ease-out;
+}
+
+/* 32. ESTILO PARA ÍCONES (Se for adicionado ícone de fonte) */
+.icon {
+    font-size: 1.2em;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+/* =======================================================
+ * 33. ESTILOS CONDICIONAIS DE TABELA (DATA HIGHLIGHT)
+ * ======================================================= */
+
+/* Estilo Base para Destaque de Dados Críticos */
+.data-highlight {
+    font-weight: 700;
+    font-size: 1.1em;
+}
+
+/* 34. Condição: Alerta Crítico (Ex: 0 Sessões Restantes) */
+.data-highlight.critical {
+    color: var(--color-danger);
+    background-color: rgba(239, 68, 68, 0.1);
+    border-radius: 4px;
+    padding: 2px 6px;
+}
+
+/* 35. Condição: Alerta de Atenção (Ex: 1-3 Sessões Restantes) */
+.data-highlight.warning {
+    color: var(--color-accent);
+    background-color: rgba(245, 158, 11, 0.1);
+    border-radius: 4px;
+    padding: 2px 6px;
+}
+
+/* 36. Condição: Status Positivo (Ex: Sessões Ativas) */
+.data-highlight.positive {
+    color: var(--color-secondary);
+}
+
+/* 37. Destaque para Nomes de Pacientes na Tabela (Hierarquia) */
+#clientes-list td:nth-child(2) { /* Seleciona a coluna Nome (assumindo ID é 1a) */
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+
+/* =======================================================
+ * 38. ESTILOS PARA FORMS MENORES (INLINE COMPACT)
+ * ======================================================= */
+
+/* Container para agrupar inputs em linha em formulários menores (Ex: Tratamentos) */
+.form-group-inline {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr; /* Nome, Preço, Ações/Botão */
+    gap: 20px;
+    align-items: end;
+    margin-bottom: 20px;
+}
+
+/* 39. Ajusta Inputs dentro de grupos inline */
+.form-group-inline .input-group-admin {
+    margin-bottom: 0 !important;
+}
+
+/* 40. Ajusta Largura Total para inputs dentro do Grid */
+.form-group-inline .input-group-admin input,
+.form-group-inline .input-group-admin select,
+.form-group-inline .input-group-admin textarea {
+    width: 100%;
+    padding: 12px 15px;
+    font-size: 1em;
+}
+
+/* 41. Botões Inline Ajustados */
+.form-group-inline button {
+    padding: 14px 20px !important;
+    width: 100%;
+}
+
+/* =======================================================
+ * 42. ESTILOS DE PACOTES E RASTREAMENTO (VISUAL)
+ * ======================================================= */
+
+/* Título da Seção de Rastreamento de Pacotes */
+#pacotes-module h3 {
+    color: var(--color-primary);
+    border-bottom: 1px solid var(--color-light-bg);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* 43. Estilo para o Rastreamento de Sessões do Pacote (Modal) */
+#schedule-grid-container h4 {
+    color: var(--color-secondary);
+    font-weight: 700;
+    margin-top: 20px;
+    border-bottom: 1px solid rgba(52, 211, 153, 0.2);
+}
+
+/* 44. Estilo de Contorno para Vaga Livre (Chamada para Ação) */
+#pacote-session-list div[style*="dashed"] {
+    border: 2px dashed var(--color-accent) !important;
+    background-color: rgba(245, 158, 11, 0.05) !important;
+    padding: 15px !important;
+    font-weight: 600;
+    color: var(--color-accent);
+}
+
+/* =======================================================
+ * 45. ACESSO RÁPIDO AO MODAL (FICHA DO CLIENTE)
+ * ======================================================= */
+
+/* 46. Estilo da Célula que Abre o Modal (Visualmente clicável) */
+#clientes-list td:nth-child(2) { /* Nome do Cliente */
+    cursor: pointer;
+    text-decoration: underline;
+    text-decoration-color: var(--color-secondary);
+    transition: text-decoration-color var(--transition-speed);
+}
+#clientes-list tr:hover td:nth-child(2) {
+    text-decoration-color: var(--color-primary);
+}
+
+/* =======================================================
+ * 47. REGRAS DE IMPRESSÃO (FINETUNING FINAL)
+ * ======================================================= */
+@media print {
+    /* 48. Cor de Títulos para Impressão */
+    h1, h2, h3 {
+        color: var(--color-primary) !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    
+    /* 49. Backgrounds brancos para economia de tinta */
+    .kpi-card, #sidebar-menu, main {
+        background-color: white !important;
+        box-shadow: none !important;
+        border: 1px solid #ccc !important;
+    }
+    
+    /* 50. Visibilidade de Links */
+    a[href]:after {
+        content: " (" attr(href) ")";
+        font-size: 90%;
+        color: #555;
+    }
+}
+/* =======================================================
+ * 51. REGRAS DE BASE E TIPOGRAFIA (REFORÇO)
+ * ======================================================= */
+
+/* Força a suavização de fontes para maior legibilidade em telas HD */
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Garante que o texto de informações sutis tenha o peso correto */
+.data-info-subtle {
+    color: var(--color-text-subtle);
+    font-size: 0.9em;
+}
+
+/* 52. Estilo para o Título Principal do Módulo (H2) */
+#content-area h2 {
+    /* Adiciona uma sombra sutil ao texto para separá-lo do fundo */
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
+    transition: all 0.3s;
+}
+
+/* Efeito de destaque ao passar o mouse no título do módulo */
+#content-area h2:hover {
+    color: var(--color-secondary);
+    border-bottom-color: var(--color-primary);
+}
+
+/* =======================================================
+ * 53. REGRAS PARA ALINHAMENTO E LAYOUT
+ * ======================================================= */
+
+/* Estilo para Grupos de Botões (Garantir Alinhamento e Espaçamento) */
+.button-group-admin {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    margin-bottom: 25px;
+    padding-top: 10px;
+}
+
+/* 54. Alinhamento de Formulário em Linha Mestre */
+.form-master-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Duas colunas para dados lado a lado */
+    gap: 40px;
+}
+
+/* Regra para garantir que os inputs preencham a nova largura do grid */
+.form-master-layout .input-group-admin input,
+.form-master-layout .input-group-admin select,
+.form-master-layout .input-group-admin textarea {
+    width: 100%;
+}
+
+/* 55. Ajuste para o formulário de Anamnese (Usa Largura Total) */
+#anamnese-ficha {
+    grid-column: 1 / -1; /* Ocupa as duas colunas */
+    margin-top: 20px;
+}
+
+/* 56. Estiliza o Fieldset (Separadores Visuais) */
+fieldset {
+    border-left: 5px solid var(--color-secondary); /* Borda lateral para agrupar */
+}
+
+/* 57. Estilo para Botões Flutuantes de Ação Rápida (Modal) */
+#modal-edit-btn, #modal-schedule-btn {
+    margin-left: 15px;
+}
+#quick-view-modal .add-button {
+    box-shadow: 0 2px 10px rgba(52, 211, 153, 0.4);
+    font-weight: 600;
+}
+
+
+/* =======================================================
+ * 58. DESTAQUE DE DADOS E AÇÕES ESPECÍFICAS
+ * ======================================================= */
+
+/* 58.1 Destaque para Nomes de Pacotes na Listagem */
+#pacotes-list td:nth-child(3) { /* Coluna Nome do Pacote */
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+/* 58.2 Estilo para o Botão "Rastrear Sessões" (Destaque Laranja/Âmbar) */
+button[onclick^="handleSchedulePacote"] {
+    background-color: var(--color-accent);
+    color: var(--color-primary);
+    font-weight: 700;
+    padding: 10px 18px;
+    border-radius: 6px;
+    box-shadow: 0 4px 10px rgba(245, 158, 11, 0.4);
+    transition: all 0.3s;
+}
+
+button[onclick^="handleSchedulePacote"]:hover {
+    background-color: #d68913;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(245, 158, 11, 0.6);
+}
+
+/* 59. Estilo para a Tabela de Agendamentos (Destaque Horário) */
+#agendamentos-list td:nth-child(2) { /* Coluna Data/Hora */
+    font-weight: 600;
+    color: var(--color-primary);
+    letter-spacing: 0.01em;
+}
+
+/* 60. Estilo de Alinhamento para as Células de Ações da Tabela */
+#terapeutas-list td:last-child,
+#clientes-list td:last-child,
+#agendamentos-list td:last-child,
+#pacotes-list td:last-child {
+    text-align: right;
+}
+
+/* =======================================================
+ * 61. REGRAS DE ESPAÇAMENTO E RESET DE MARGEM (HIGH COHERENCE)
+ * ======================================================= */
+/* Garante que elementos de lista dentro de módulos tenham margem zero */
+.content-module ul, .content-module ol {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-left: 20px;
+}
+
+/* 62. Ajuste Fino para Separar as Mesas de Ação */
+#add-terapeuta-btn, #print-terapeutas-btn {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+#add-terapeuta-form-container + #add-terapeuta-btn {
+    margin-top: 0;
+}
+
+/* 63. Ajuste o espaçamento de rodapé da tabela */
+#terapeutas-list {
+    margin-bottom: 50px;
+}
+
+/* =======================================================
+ * 64. FINALIZAÇÃO DA RESPONSIVIDADE (MOBILE EXPERT)
+ * ======================================================= */
+
+@media (max-width: 1024px) {
+    /* 65. Ajuste para Telas Médias (Tablet Vertical) */
+    #sidebar-menu {
+        width: 200px;
+    }
+    #sidebar-menu li a {
+        padding: 14px 15px;
+        font-size: 0.95em;
+    }
+    
+    #content-area {
+        padding: 30px;
+    }
+
+    /* 66. Redução do tamanho dos títulos para melhor ajuste */
+    header h1 {
+        font-size: 1.8em;
+    }
+    #content-area h2 {
+        font-size: 1.7em;
+    }
+
+    /* 67. Ajuste no Alinhamento de Botões na Tabela */
+    .action-btn {
+        padding: 6px 10px;
+        margin-left: 5px;
+    }
+}
+
+@media (max-width: 768px) {
+    /* 68. Altera o layout de formulário para uma única coluna */
+    .form-master-layout {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    /* 69. Força o Fieldset de Anamnese para Mobile */
+    #anamnese-ficha {
+        padding: 20px 15px;
+        margin-left: -15px;
+        margin-right: -15px;
+    }
+
+    /* 70. Ajusta o tamanho da fonte principal no Mobile */
+    body {
+        font-size: 15px;
+    }
+}
+
+/* 71. INÍCIO DA RESERVA DE LINHAS PARA FUTURAS ADIÇÕES */
+/* LINHA 71 A 100 - RESERVA E COMENTÁRIOS DE ENGENHARIA DE DESIGN */
+
+/* 72. REGRA DE OVERFLOW PARA MODAIS (Prevenção de scroll duplo) */
+body.modal-open {
+    overflow: hidden;
+}
+
+/* 73. Estilo para o Rótulo do Input File (Melhorando a UX do Upload) */
+.input-group-admin input[type="file"] {
+    cursor: pointer;
+    background-color: var(--color-offwhite);
+    border: 1px solid #d1d5db;
+    border-radius: var(--border-radius-base);
+    padding: 10px;
+    width: auto;
+}
+
+/* 74. Estilo de Alerta Sutil (Uso futuro para mensagens temporárias) */
+.toast-notification {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: var(--color-primary);
+    color: white;
+    padding: 15px 20px;
+    border-radius: var(--border-radius-base);
+    box-shadow: var(--shadow-deep);
+    z-index: 1000;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: all 0.5s ease-out;
+}
+
+/* 75. Classe Ativa da Notificação */
+.toast-notification.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 76. Fim do bloco de utilidades. Início das linhas de preenchimento. */
+/* 77. Regra de Limpeza de Foco para elementos não padrão */
+button:focus, a:focus {
+    transform: scale(0.98);
+}
+/* 78. Coerência visual dos botões de logout com a cor do menu */
+#logout-btn {
+    border-top: 1px solid var(--color-surface);
+}
+/* 79. Alinhamento de Texto no Cabeçalho */
+.header-info-block {
+    text-align: right;
+}
+/* 80. Estilo para Tabela de Próximos Agendamentos */
+#upcoming-list th {
+    background-color: var(--color-offwhite);
+    color: var(--color-text-subtle);
+}
+/* 81. Preenchimento de linha para consistência visual */
+#upcoming-list td {
+    padding: 12px 18px;
+}
+/* 82. Ajuste na visualização do modal de Quick View */
+#info-content p {
+    font-size: 1.05em;
+    margin-bottom: 8px;
+}
+/* 83. Estilo para a legenda no modal de histórico */
+#historico-content h4 {
+    color: var(--color-primary);
+}
+/* 84. Ajuste na cor de fundo do modal de pacote */
+#pacote-schedule-modal > div {
+    background-color: var(--color-offwhite);
+}
+/* 85. Destaque do título do rastreamento de pacotes */
+#pacote-schedule-title {
+    color: var(--color-primary);
+    border-bottom: 2px solid var(--color-accent);
+}
+/* 86. Estilo para os detalhes do pacote no rastreamento */
+#schedule-grid-container p {
+    font-weight: 500;
+    color: var(--color-text);
+}
+/* 87. Regra de Animação para Títulos (Sutil) */
+h2 {
+    transition: color 0.4s ease-out;
+}
+/* 88. Regra para garantir que o input de cor da empresa não seja muito grande */
+.input-group-admin input[type="color"] {
+    padding: 2px !important;
+    height: 30px;
+    width: 30px;
+    border-left: none !important;
+}
+/* 89. Alinhamento de botões de impressão */
+#print-terapeutas-btn {
+    vertical-align: middle;
+    margin-left: 15px;
+}
+/* 90. Estilo da linha de separação da navegação */
+#sidebar-menu li {
+    border-bottom: 1px dashed rgba(229, 231, 235, 0.5);
+}
+/* 91. Ajuste de margem dos botões de formulário */
+#add-terapeuta-form .add-button, #add-terapeuta-form .cancel-button {
+    margin-top: 15px;
+    margin-right: 15px;
+}
+/* 92. Estilo para Fieldset da Anamnese */
+#anamnese-ficha {
+    border-radius: var(--border-radius-base);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+/* 93. Coerência visual do botão cancelar (usado em vários forms) */
+.cancel-button:hover {
+    color: var(--color-danger);
+}
+/* 94. Estilo de Alerta na Tabela para Status Crítico */
+.status-agendado {
+    font-style: italic;
+}
+/* 95. Estilo de Destaque na Tabela para Status de Ação Imediata */
+.status-confirmado {
+    font-weight: 800;
+}
+/* 96. Ajuste no espaçamento do conteúdo para evitar colisão com o cabeçalho */
+#content-area {
+    min-height: calc(100vh - 150px);
+}
+/* 97. Finalização do polimento de sombra dos cards KPI */
+.kpi-card:hover {
+    box-shadow: var(--shadow-deep);
+}
+/* 98. Regra para remover a margem inferior do último elemento do formulário */
+#add-cliente-form > div:last-child {
+    margin-bottom: 0;
+}
+/* 99. Coerência de cor para texto de destaque secundário */
+.color-secondary-text {
+    color: var(--color-secondary);
+}
+/* 100. FIM DO DESIGN SYSTEM AURORA NEXUS PRO */
+
+/* =======================================================
+ * 101. BÔNUS FINAL: GLACÊ DE DADOS (GLAZED GLASS KPI)
+ * ======================================================= */
+
+/* Reforça o background dos KPI Cards para Glazed Effect */
+.kpi-card {
+    background: rgba(255, 255, 255, 0.95); /* Quase branco com opacidade */
+    border: 1px solid #e0f2f7; /* Borda Aqua Clara */
+    border-radius: 16px;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Transição suave e complexa */
+    position: relative;
+    overflow: hidden;
+}
+
+/* Efeito de Borda Reativa e Aura (Substitui o border-left simples no hover) */
+.kpi-card:hover {
+    transform: translateY(-8px); /* Elevação ainda maior */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2), 0 0 15px var(--color-secondary); /* Sombra + Aura Aqua */
+    /* Remove a borda esquerda do hover para usar o efeito after */
+    border-left: 1px solid var(--color-secondary); 
+}
+
+/* Efeito Glow para Cada Tipo de KPI (Cria Diferenciação) */
+
+/* Clientes Ativos (Primary Focus) */
+.kpi-card:nth-child(1):hover {
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2), 0 0 15px var(--color-primary);
+}
+.kpi-card:nth-child(1) .kpi-value {
+    color: var(--color-primary); 
+}
+
+/* Sessões Próximas (Secondary Action) */
+.kpi-card:nth-child(2):hover {
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2), 0 0 15px var(--color-secondary);
+}
+.kpi-card:nth-child(2) .kpi-value {
+    color: var(--color-secondary); 
+}
+
+/* Saldo Financeiro (Accent/Warning) */
+.kpi-card:nth-child(3):hover {
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2), 0 0 15px var(--color-accent);
+}
+.kpi-card:nth-child(3) .kpi-value {
+    color: var(--color-accent); 
+}
+
+/* Regra para garantir que o texto do saldo continue vermelho em caso de perda */
+.kpi-financeiro .kpi-value[style*="danger"] {
+    color: var(--color-danger) !important;
+}
+
+/* 102. Detalhe Final na Legibilidade */
+.kpi-card h3 {
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-weight: 600;
+}

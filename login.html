@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acesso Restrito - Clínica</title>
+    <link rel="stylesheet" href="/assets/css/login-styles.css">
+</head>
+<body>
+    <div class="login-container">
+        <h1>Acesso Administrativo</h1>
+        <p>Informe suas credenciais para gerenciar a Clínica.</p>
+        
+        <form id="login-form">
+            <div class="input-group">
+                <label for="username">Usuário (E-mail):</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            
+            <div class="input-group">
+                <label for="password">Senha:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            
+            <button type="submit">Entrar</button>
+            
+            <p id="login-message" class="error-message"></p>
+        </form>
+    </div>
+
+    <script src="/assets/js/script.js"></script>
+</body>
+</html>

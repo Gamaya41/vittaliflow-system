@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ficha de Anamnese - Clínica [Nome da Clínica]</title>
+    
+    <style>
+        :root {
+            --color-primary: #1e3a8a; 
+            --color-secondary: #34d399;
+            --color-danger: #ef4444;
+            --color-background: #f9fafb;
+            --color-surface: #ffffff;
+            --color-text: #1f2937;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--color-background);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+
+        .form-container {
+            background-color: var(--color-surface);
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 700px;
+            border: 1px solid #e5e7eb;
+        }
+
+        h1 {
+            color: var(--color-primary);
+            border-bottom: 2px solid var(--color-secondary);
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+            text-align: center;
+            font-weight: 700;
+        }
+        
+        /* Estilo dos Grupos de Input (Foco) */
+        .input-group {
+            margin-bottom: 25px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--color-text);
+        }
+
+        .input-group input,
+        .input-group select,
+        .input-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            transition: all 0.3s;
+            font-size: 1em;
+        }
+
+        /* Foco Visível para o Cliente */
+        .input-group input:focus,
+        .input-group select:focus,
+        .input-group textarea:focus {
+            border-color: var(--color-secondary);
+            box-shadow: 0 0 0 3px rgba(52, 211, 153, 0.2);
+            outline: none;
+        }
+
+        /* Fieldset para Agrupamento */
+        fieldset {
+            border: 1px solid #e5e7eb;
+            padding: 25px;
+            border-radius: 12px;
+            margin-top: 30px;
+        }
+
+        legend {
+            color: var(--color-secondary);
+            font-weight: 700;
+            font-size: 1.1em;
+            padding: 0 10px;
+        }
+
+        /* Botão de Submissão */
+        button[type="submit"] {
+            width: 100%;
+            padding: 15px;
+            background-color: var(--color-secondary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(52, 211, 153, 0.5);
+        }
+
+        button[type="submit"]:hover {
+            background-color: #279f7a;
+            box-shadow: 0 6px 20px rgba(52, 211, 153, 0.7);
+        }
+
+        #message {
+            margin-top: 20px;
+            font-weight: 600;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Ficha de Onboarding do Paciente</h1>
+        <p style="text-align: center; color: var(--color-primary);">Preencha seus dados para finalizarmos o agendamento.</p>
+
+        <form id="anamnese-form">
+            <fieldset>
+                <legend>Dados de Contato (Essenciais)</legend>
+                <div class="input-group">
+                    <label for="nome">Nome Completo:</label>
+                    <input type="text" id="nome" name="nome" required>
+                </div>
+                <div class="input-group">
+                    <label for="email">E-mail (Seu Login no Sistema):</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="input-group">
+                    <label for="telefone">Telefone (WhatsApp):</label>
+                    <input type="tel" id="telefone" name="telefone">
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Anamnese Rápida (Histórico de Saúde)</legend>
+
+                <div class="input-group">
+                    <label for="queixa-principal">Qual a Queixa Principal / Objetivo da Sessão?</label>
+                    <textarea id="queixa-principal" name="queixa-principal" rows="3" required></textarea>
+                </div>
+                
+                <div class="input-group">
+                    <label for="condicoes-cronicas">1. Possui Condições Crônicas de Saúde?</label>
+                    <select id="condicoes-cronicas" name="condicoes-cronicas">
+                        <option value="Nenhuma" selected>Nenhuma</option>
+                        <option value="Hipertensão">Hipertensão (Pressão Alta)</option>
+                        <option value="Diabetes">Diabetes</option>
+                        <option value="Fibromialgia">Fibromialgia</option>
+                        <option value="Outras">Outras</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="gravidez">2. Está grávida ou suspeita de gravidez?</label>
+                    <select id="gravidez" name="gravidez">
+                        <option value="Nao" selected>Não</option>
+                        <option value="Sim">Sim</option>
+                        <option value="NaoSei">Não Sei/Suspeita</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="cirurgias">3. Histórico de Cirurgias Recentes (últimos 6 meses)?</label>
+                    <select id="cirurgias" name="cirurgias">
+                        <option value="Nao" selected>Não</option>
+                        <option value="Sim">Sim</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="medicamentos-uso">4. Medicamentos e Suplementos em Uso:</label>
+                    <textarea id="medicamentos-uso" name="medicamentos-uso" rows="2" placeholder="Nome, dosagem, frequência."></textarea>
+                </div>
+                
+                <div class="input-group">
+                    <label for="alergias">5. Alergias Conhecidas (Alimentos, Medicamentos, Óleos, etc.):</label>
+                    <textarea id="alergias" name="alergias" rows="2" placeholder="Detalhe as alergias conhecidas."></textarea>
+                </div>
+                
+                <div class="input-group">
+                    <label for="observacoes-anamnese">6. Outras Observações Importantes:</label>
+                    <textarea id="observacoes-anamnese" name="observacoes-anamnese" rows="3" placeholder="Restrições, histórico familiar, etc."></textarea>
+                </div>
+            </fieldset>
+            
+            <button type="submit">Guardar Ficha e Continuar</button>
+            <p id="message"></p>
+        </form>
+    </div>
+    
+    <script src="assets/js/anamnese.js"></script>
+</body>
+</html>

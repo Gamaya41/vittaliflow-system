@@ -1,0 +1,100 @@
+{
+  "adminUser": {
+    "username": "ceo@suaclinica.com",
+    "password": "senhaAdmin123" 
+  },
+  
+  "terapeutas": [
+    {
+      "id": 1,
+      "nome": "Dra. Ana Costa",
+      "especialidade": "Acupuntura",
+      "email": "Ingrid@gamaya.com.br",
+      "senha": "123456"
+    },
+    {
+      "id": 2,
+      "nome": "Jhoni Luiz Duarte Moraes",
+      "especialidade": "Massoterapia",
+      "email": "Jhoni@gamaya.com.br",
+      "senha": "123456"
+    } 
+  ],
+  
+  "salasAmbientes": [
+    {
+      "id": "S1",
+      "nome": "Sala Zen",
+      "capacidade": 1
+    },
+    {
+      "id": "S2",
+      "nome": "Sala Relax",
+      "capacidade": 2
+    }
+  ],
+  
+  "tiposTratamento": [
+    {
+      "id": "T001",
+      "nome": "Massagem Relaxante (60min)",
+      "preco": 120.00
+    },
+    {
+      "id": "T002",
+      "nome": "Sessão de Acupuntura",
+      "preco": 150.00
+    }
+  ],
+  
+  "despesas": [
+    {
+      "id": 1,
+      "tipo": "Aluguel Imóvel",
+      "descricao": "Aluguel de Julho/2025",
+      "valor": 2500.00,
+      "data": "2025-07-05"
+    }
+  ],
+  
+  "clientes": [
+    {
+      "id": 1,
+      "nome": "João Silva",
+      "telefone": "11987654321",
+      "email": "joao.silva@teste.com",
+      "historico": "Paciente com histórico de dor lombar crônica. Recomendado 4 sessões."
+    }
+  ],
+
+  "pacotes": [
+  {
+    "id": 1,
+    "clienteId": 1,
+    "nomePacote": "Bem-Estar Profundo (10 Sessões)",
+    "totalSessoes": 10,
+    "valorTotal": 1200.00,
+    "dataCompra": "2025-09-01"
+  }
+],
+"configuracaoEmpresa": {
+  "nome": "Clínica de Terapias Complementares",
+  "logoBase64": "", 
+  "cnpj": "00.000.000/0001-00"
+
+  },
+  
+  "agendamentos": [
+    {
+      "id": 101,
+      "clienteId": 1,
+      "terapeutaId": 2, 
+      "tratamentoId": "T001", 
+      "salaId": "S2", 
+      "data": "2025-10-10",
+      "hora": "14:00",
+      "status": "Agendado"
+    }
+  ]
+}
+
