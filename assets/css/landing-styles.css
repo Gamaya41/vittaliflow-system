@@ -293,15 +293,31 @@ footer {
 
 /* landing-styles.css - Adicione esta regra no final */
 
-/* Regra para garantir que o botão de Login no Header fique SECUNDÁRIO (Borda) */
+/* landing-styles.css - Adicione esta regra no final */
+
+/* REGRA DE INVERSÃO: Faz o botão 'ASSINE JÁ' (que é o btn-demo) ficar BRANCO */
 header .btn-demo {
-    background-color: transparent !important;
-    border: 2px solid white !important;
-    color: white !important;
-    box-shadow: none !important;
+    /* Corrigindo a inversão: queremos o fundo branco, borda cinza, texto primário */
+    background-color: white !important; 
+    border: 2px solid var(--color-primary) !important;
+    color: var(--color-primary) !important;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2) !important;
 }
 
 header .btn-demo:hover {
-    background-color: rgba(255, 255, 255, 0.2) !important;
+    background-color: var(--color-light-bg) !important;
     transform: translateY(-2px);
+}
+
+/* REGRA DE REFORÇO: Garante que o botão 'JÁ SOU CLIENTE' (que é o btn-cliente) fique SÓLIDO */
+header .btn-cliente {
+    background-color: var(--color-secondary) !important; 
+    color: var(--color-primary) !important; 
+    box-shadow: 0 4px 10px rgba(52, 211, 153, 0.5) !important; 
+    border: none !important;
+}
+
+header .btn-cliente:hover {
+    background-color: #279f7a !important;
+    color: white !important;
 }
