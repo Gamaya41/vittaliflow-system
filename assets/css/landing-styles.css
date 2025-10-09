@@ -321,3 +321,24 @@ header .btn-cliente:hover {
     background-color: #279f7a !important;
     color: white !important;
 }
+
+/* landing-styles.css (Apenas a regra #header-logo-final) */
+
+/* REGRA CRÍTICA DA LOGO (AJUSTÁVEL E AGORA BRANCA) */
+#header-logo-final {
+    /* MUDAR SOMENTE AQUI PARA AJUSTAR O TAMANHO */
+    height: 70px !important; 
+    width: auto !important;
+    
+    /* CRÍTICO: Filtro para converter a logo para BRANCO (se o original for preto/escuro) */
+    /* brightness(0) torna tudo preto, e invert(1) inverte para branco. */
+    filter: brightness(0) invert(1) drop-shadow(0 0 5px rgba(255, 255, 255, 0.6));
+    
+    transition: all 0.3s;
+}
+
+#header-logo-final:hover {
+    /* Mantém o brilho verde na interação, mas aplicado sobre o branco */
+    filter: brightness(0) invert(1) drop-shadow(0 0 10px var(--color-secondary)); 
+}
+
