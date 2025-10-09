@@ -70,7 +70,7 @@ header {
 /* REGRA CRÍTICA DA LOGO (CORREÇÃO DE TAMANHO E MARGEM) */
 #header-logo-final {
     /* CORREÇÃO APLICADA: Reduzido de 280px para 120px */
-    height: 280px !important; 
+    height: 300px !important; 
     width: auto !important;
     
     /* CORREÇÃO APLICADA: Margem negativa ajustada para -40px */
@@ -289,3 +289,4 @@ footer {
         padding: 15px 20px;
     }
 }
+
