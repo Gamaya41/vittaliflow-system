@@ -74,8 +74,8 @@ header {
     width: auto !important;
     
     /* CORREÇÃO APLICADA: Margem negativa ajustada para -40px */
-    margin-top: -180px; 
-    margin-bottom: -180px; 
+    margin-top: -220px; 
+    margin-bottom: -220px; 
     
     filter: none;
     transition: all 0.3s;
@@ -289,5 +289,6 @@ footer {
         padding: 15px 20px;
     }
 }
+
 
 
