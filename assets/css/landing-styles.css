@@ -1,7 +1,7 @@
 /*
  * =======================================================
- * VITTALIFLOW LANDING PAGE - ZENITH AURA PRIME (VISUAL AAA)
- * CONCEITO: Polimento Extremo, Hierarquia Impecável, Fundo Suave e Logo em Destaque.
+ * VITTALIFLOW LANDING PAGE - ZENITH AURA PRIME (FINAL)
+ * CONCEITO: Cabeçalho Branco Compacto, Contraste de Marca Forte e Layout em Grid.
  * =======================================================
  */
 
@@ -10,15 +10,15 @@
     --color-primary: #1a4369;     /* Azul Marinho Profundo (Base de Foco) */
     --color-secondary: #34d399;   /* Verde Água Sereno (Ação Vibrante) */
     --color-accent: #f59e0b;      /* Âmbar Suave (Destaque) */
-    --color-background-hero: #1a4369; /* Mantenho o azul aqui para o HERO SECTION */ 
+    --color-background-hero: #1a4369; 
     --color-text-dark: #1f2937;
     --color-text-subtle: #6b7280; 
     --color-surface: #ffffff;
     --color-light-bg: #f3f4f6; /* Fundo suave para seções secundárias */
-    --shadow-base: 0 10px 30px rgba(0, 0, 0, 0.08); /* Sombra mais suave */
-    --shadow-hover: 0 15px 40px rgba(0, 0, 0, 0.15); /* Sombra intensa no hover */
-    --border-radius-lg: 12px; /* Ligeiramente mais curvo */
-    --transition-speed: 0.4s; /* Transições mais lentas e fluidas */
+    --shadow-base: 0 10px 30px rgba(0, 0, 0, 0.08);
+    --shadow-hover: 0 15px 40px rgba(0, 0, 0, 0.15);
+    --border-radius-lg: 12px;
+    --transition-speed: 0.4s;
 }
 
 /* 2. REGRAS GLOBAIS E ESTRUTURA */
@@ -46,51 +46,45 @@ h3 {
     font-weight: 700;
 }
         
-/* 3. CABEÇALHO (HEADER) - FINAL E COMPACTO */
+/* 3. CABEÇALHO (HEADER) - BRANCO E COMPRIMIDO */
 header {
-    /* Fundo forçado para BRANCO (para contraste máximo da logo) */
-    background-color: #ffffff; 
-    color: var(--color-text-dark);
-    
+    /* FUNDO BRANCO COMPRIMIDO */
+    background-color: var(--color-surface); 
+    /* CRÍTICO: Zero padding vertical para comprimir o header */
     padding: 0 50px; 
     min-height: 40px; 
     
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 3px solid var(--color-secondary);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
-    
-    /* COMANDO PARA FIXAR O HEADER */
+    /* Borda inferior sutil para delimitação */
+    border-bottom: 2px solid var(--color-secondary); 
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     position: sticky;
     top: 0;
-    z-index: 1000;
+    z-index: 100;
 }
 
-/* REGRA CRÍTICA DA LOGO (CORREÇÃO DE TAMANHO E MARGEM) */
+/* REGRA CRÍTICA DA LOGO (ESCURA E GRANDE) */
 #header-logo-final {
-    /* CORREÇÃO APLICADA: Reduzido de 280px para 120px */
-    height: 280px !important; 
+    height: 70px !important; 
     width: auto !important;
-    
-    /* CORREÇÃO APLICADA: Margem negativa ajustada para -40px */
-    margin-top: -150px; 
-    margin-bottom: -150px; 
-    
-    filter: none;
+    /* Remove o filtro de inversão para que a logo apareça escura sobre o fundo branco */
+    filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.1)); 
+    margin-top: 2px; /* Ajuste manual para centralizar verticalmente */
+    margin-bottom: 2px;
     transition: all 0.3s;
 }
 
 #header-logo-final:hover {
-    filter: drop-shadow(0 0 10px rgba(52, 211, 153, 1)); 
+    filter: drop-shadow(0 0 10px var(--color-secondary)); /* Brilho Verde Água no Hover */
 }
 
 
 /* 4. SEÇÃO HERO */
 .landing-hero {
-    /* Mantém o gradiente escuro para o corpo da página */
-    background: linear-gradient(135deg, var(--color-primary) 0%, #3b82f6 100%);
-    color: white; /* Mantém o texto principal branco para o fundo escuro */
+    background: linear-gradient(135deg, var(--color-background-hero) 0%, #3b82f6 100%);
+    color: white;
     min-height: 90vh;
     display: grid;
     grid-template-columns: 3fr 2fr; 
@@ -109,7 +103,7 @@ header {
 .landing-hero h1 {
     font-size: 4em; 
     margin-bottom: 25px;
-    color: white; 
+    color: white;
     line-height: 1.05;
     text-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
 }
@@ -235,10 +229,27 @@ header {
     display: inline-block;
 }
 
-.btn-cliente { background-color: var(--color-secondary); color: var(--color-primary); }
-.btn-cliente:hover { background-color: #279f7a; color: white; transform: translateY(-4px); }
-.btn-demo { background-color: transparent; color: white; border: 2px solid white; }
-.btn-demo:hover { background-color: white; color: var(--color-primary); transform: translateY(-4px); }
+/* BOTÕES NO HEADER */
+header .btn-cliente {
+    /* Botão JÁ SOU CLIENTE - FUNDO SÓLIDO (Ação Secundária) */
+    background-color: var(--color-secondary) !important; 
+    color: var(--color-primary) !important;
+    box-shadow: 0 4px 10px rgba(52, 211, 153, 0.5) !important; 
+    border: none !important;
+}
+
+header .btn-demo {
+    /* Botão ASSINE JÁ - FUNDO BRANCO/BORDA (Ação de Venda Principal) */
+    background-color: white !important; 
+    border: 2px solid var(--color-primary) !important;
+    color: var(--color-primary) !important;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2) !important;
+}
+
+header .btn-demo:hover {
+    background-color: var(--color-light-bg) !important;
+    transform: translateY(-2px);
+}
 
 
 /* 9. FOOTER */
@@ -288,57 +299,4 @@ footer {
     header {
         padding: 15px 20px;
     }
-
 }
-
-/* landing-styles.css - Adicione esta regra no final */
-
-/* landing-styles.css - Adicione esta regra no final */
-
-/* REGRA DE INVERSÃO: Faz o botão 'ASSINE JÁ' (que é o btn-demo) ficar BRANCO */
-header .btn-demo {
-    /* Corrigindo a inversão: queremos o fundo branco, borda cinza, texto primário */
-    background-color: white !important; 
-    border: 2px solid var(--color-primary) !important;
-    color: var(--color-primary) !important;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2) !important;
-}
-
-header .btn-demo:hover {
-    background-color: var(--color-light-bg) !important;
-    transform: translateY(-2px);
-}
-
-/* REGRA DE REFORÇO: Garante que o botão 'JÁ SOU CLIENTE' (que é o btn-cliente) fique SÓLIDO */
-header .btn-cliente {
-    background-color: var(--color-secondary) !important; 
-    color: var(--color-primary) !important; 
-    box-shadow: 0 4px 10px rgba(52, 211, 153, 0.5) !important; 
-    border: none !important;
-}
-
-header .btn-cliente:hover {
-    background-color: #279f7a !important;
-    color: white !important;
-}
-
-/* landing-styles.css (Apenas a regra #header-logo-final) */
-
-/* REGRA CRÍTICA DA LOGO (AJUSTÁVEL E AGORA BRANCA) */
-#header-logo-final {
-    /* MUDAR SOMENTE AQUI PARA AJUSTAR O TAMANHO */
-    height: 70px !important; 
-    width: auto !important;
-    
-    /* CRÍTICO: Filtro para converter a logo para BRANCO (se o original for preto/escuro) */
-    /* brightness(0) torna tudo preto, e invert(1) inverte para branco. */
-    filter: brightness(0) invert(1) drop-shadow(0 0 5px rgba(255, 255, 255, 0.6));
-    
-    transition: all 0.3s;
-}
-
-#header-logo-final:hover {
-    /* Mantém o brilho verde na interação, mas aplicado sobre o branco */
-    filter: brightness(0) invert(1) drop-shadow(0 0 10px var(--color-secondary)); 
-}
-
